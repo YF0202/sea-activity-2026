@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TikTok Shop 商家活动大全 · 2026 年 8 月</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #05060a;
+    --bg-2: #0b0e17;
+    --card: rgba(19, 23, 36, 0.72);
+    --card-hover: rgba(28, 33, 50, 0.88);
+    --border: rgba(255, 255, 255, 0.08);
+    --border-strong: rgba(255, 255, 255, 0.16);
+    --text: #e8ecf4;
+    --text-mute: #8a93a6;
+    --text-dim: #5b6478;
+    --accent: #6d5efd;
+    --accent-2: #22d3ee;
+    --pink: #ff2f7a;
+    --lime: #b6ff3d;
+    --amber: #ffb547;
+    --ph: #ff5c8a;
+    --sg: #22d3ee;
+    --vn: #b6ff3d;
+    --kbrand: #ffb547;
+    --tiktok: #ff2f7a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Outfit', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(1200px 800px at 10% -10%, rgba(109, 94, 253, 0.18), transparent 60%),
+      radial-gradient(1000px 700px at 100% 10%, rgba(34, 211, 238, 0.12), transparent 60%),
+      radial-gradient(900px 600px at 50% 120%, rgba(255, 47, 122, 0.10), transparent 60%);
+    background-attachment: fixed;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: 1360px; margin: 0 auto; padding: 40px 32px 80px; }
+
+  /* Header */
+  .header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 24px; padding-bottom: 28px; margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex; align-items: center; gap: 14px;
+    font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;
+  }
+  .brand-mark {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: conic-gradient(from 180deg at 50% 50%, #6d5efd, #22d3ee, #b6ff3d, #ff2f7a, #6d5efd);
+    box-shadow: 0 8px 30px rgba(109, 94, 253, 0.35), inset 0 0 0 2px rgba(255,255,255,0.08);
+    position: relative;
+  }
+  .brand-mark::after {
+    content: ''; position: absolute; inset: 6px; border-radius: 8px; background: #05060a;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .brand-mark::before {
+    content: 'TS'; position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 14px; color: #fff; z-index: 2;
+  }
+  .brand-title {
+    font-size: 22px; font-weight: 700; color: #fff;
+  }
+  .brand-sub {
+    font-size: 12px; color: var(--text-mute); letter-spacing: 1.5px; text-transform: uppercase;
+  }
+  h1.page-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 800; line-height: 1.05; margin: 12px 0 6px;
+    background: linear-gradient(120deg, #ffffff 0%, #cdd4e0 40%, #a9b1c6 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    letter-spacing: -0.02em;
+  }
+  .page-sub {
+    color: var(--text-mute); font-size: 15px; max-width: 620px; line-height: 1.6;
+  }
+  .header-right { text-align: right; min-width: 260px; }
+  .stat-row {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--border);
+    padding: 10px 14px; border-radius: 12px; min-width: 88px;
+    backdrop-filter: blur(20px);
+  }
+  .stat-val { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 22px; color: #fff; }
+  .stat-lbl { font-size: 11px; color: var(--text-mute); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* Tabs */
+  .tabs {
+    display: inline-flex; gap: 4px; padding: 4px;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; margin-bottom: 24px;
+    backdrop-filter: blur(20px);
+  }
+  .tab {
+    padding: 10px 20px; border-radius: 10px; font-weight: 500; font-size: 14px;
+    color: var(--text-mute); cursor: pointer;
+    transition: all 0.2s ease; border: none; background: transparent;
+    display: flex; align-items: center; gap: 8px;
+    font-family: inherit;
+  }
+  .tab:hover { color: var(--text); }
+  .tab.active {
+    background: linear-gradient(135deg, rgba(109, 94, 253, 0.25), rgba(34, 211, 238, 0.15));
+    color: #fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1);
+  }
+  .tab-dot {
+    width: 6px; height: 6px; border-radius: 50%; background: currentColor;
+    opacity: 0.7;
+  }
+  .panel { display: none; animation: fadeIn 0.4s ease; }
+  .panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Legend */
+  .legend {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+    padding: 14px 16px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 14px; backdrop-filter: blur(20px);
+  }
+  .legend-label {
+    font-size: 12px; color: var(--text-mute); letter-spacing: 1.5px;
+    text-transform: uppercase; font-weight: 600; align-self: center;
+    margin-right: 8px;
+  }
+  .legend-item {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 12px; border-radius: 999px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border); font-size: 13px;
+  }
+  .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+  .dot-ph { background: var(--ph); box-shadow: 0 0 12px var(--ph); }
+  .dot-sg { background: var(--sg); box-shadow: 0 0 12px var(--sg); }
+  .dot-vn { background: var(--vn); box-shadow: 0 0 12px var(--vn); }
+  .dot-cb { background: var(--kbrand); box-shadow: 0 0 12px var(--kbrand); }
+
+  /* Calendar */
+  .calendar-wrap {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 24px; backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .calendar-title {
+    display: flex; align-items: baseline; gap: 16px; margin-bottom: 20px;
+    padding-bottom: 16px; border-bottom: 1px dashed var(--border);
+  }
+  .cal-month {
+    font-family: 'Outfit', sans-serif; font-size: 32px; font-weight: 700; color: #fff;
+    letter-spacing: -0.02em;
+  }
+  .cal-year { font-size: 14px; color: var(--text-mute); letter-spacing: 3px; }
+  .cal-count {
+    margin-left: auto; font-size: 13px; color: var(--text-mute);
+    background: rgba(109, 94, 253, 0.12); border: 1px solid rgba(109, 94, 253, 0.35);
+    padding: 4px 12px; border-radius: 999px; color: #b8b0ff;
+  }
+  .cal-grid {
+    display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .cal-head {
+    text-align: center; font-size: 11px; color: var(--text-mute);
+    letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+    padding: 8px 0;
+  }
+  .cal-cell {
+    background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+    border-radius: 12px; padding: 10px 10px 12px; min-height: 108px;
+    position: relative; transition: all 0.2s ease;
+    display: flex; flex-direction: column;
+  }
+  .cal-cell.other { opacity: 0.35; }
+  .cal-cell.has-events { background: rgba(109, 94, 253, 0.06); border-color: rgba(109, 94, 253, 0.25); }
+  .cal-cell:hover { border-color: var(--border-strong); background: rgba(255,255,255,0.04); transform: translateY(-2px); }
+  .cal-date { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 18px; color: #fff; margin-bottom: 8px; }
+  .cal-cell.weekend .cal-date { color: #ff8fb0; }
+  .cal-events { display: flex; flex-direction: column; gap: 4px; }
+  .cal-event {
+    font-size: 11px; padding: 3px 7px; border-radius: 6px; line-height: 1.3;
+    display: flex; align-items: center; gap: 5px; font-weight: 500;
+    border: 1px solid transparent;
+  }
+  .cal-event.ph { background: rgba(255,92,138,0.14); color: #ff9fb9; border-color: rgba(255,92,138,0.35); }
+  .cal-event.sg { background: rgba(34,211,238,0.14); color: #7ce6f5; border-color: rgba(34,211,238,0.35); }
+  .cal-event.vn { background: rgba(182,255,61,0.12); color: #d1ff8f; border-color: rgba(182,255,61,0.30); }
+  .cal-event.cb { background: rgba(255,181,71,0.14); color: #ffd18a; border-color: rgba(255,181,71,0.35); }
+  .cal-ev-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+
+  /* Section title */
+  .section-title {
+    display: flex; align-items: baseline; gap: 14px; margin: 28px 0 18px;
+  }
+  .section-title h2 {
+    font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700;
+    color: #fff; margin: 0; letter-spacing: -0.01em;
+  }
+  .section-title .num {
+    font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
+    color: var(--accent-2); letter-spacing: 3px;
+  }
+  .section-desc { color: var(--text-mute); font-size: 14px; margin-left: auto; }
+
+  /* Country filter */
+  .country-filter {
+    display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .cf-btn {
+    padding: 8px 16px; background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; color: var(--text-mute); font-size: 13px; cursor: pointer;
+    display: flex; align-items: center; gap: 8px; font-family: inherit;
+    transition: all 0.2s ease;
+  }
+  .cf-btn:hover { color: var(--text); border-color: var(--border-strong); }
+  .cf-btn.active { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.2); }
+  .cf-btn .legend-dot { width: 8px; height: 8px; }
+  .cf-count {
+    font-size: 11px; padding: 2px 7px; background: rgba(255,255,255,0.08);
+    border-radius: 999px; color: var(--text-mute); font-weight: 600;
+  }
+
+  /* Activity cards */
+  .cards {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 18px;
+  }
+  .card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 18px; padding: 22px; backdrop-filter: blur(20px);
+    display: flex; flex-direction: column;
+    transition: all 0.25s ease; position: relative; overflow: hidden;
+  }
+  .card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: var(--accent); opacity: 0.7;
+  }
+  .card.country-ph::before { background: linear-gradient(90deg, var(--ph), #ff9fb9); }
+  .card.country-sg::before { background: linear-gradient(90deg, var(--sg), #7ce6f5); }
+  .card.country-vn::before { background: linear-gradient(90deg, var(--vn), #d1ff8f); }
+  .card:hover { border-color: var(--border-strong); transform: translateY(-3px); background: var(--card-hover); }
+
+  .card-head {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 14px; gap: 12px;
+  }
+  .card-country {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px; border-radius: 999px; font-size: 11px;
+    font-weight: 700; letter-spacing: 1.5px;
+  }
+  .card-country.ph { background: rgba(255,92,138,0.15); color: #ff9fb9; }
+  .card-country.sg { background: rgba(34,211,238,0.15); color: #7ce6f5; }
+  .card-country.vn { background: rgba(182,255,61,0.14); color: #d1ff8f; }
+  .card-date {
+    font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 13px;
+    color: var(--text-mute); display: flex; align-items: center; gap: 6px;
+  }
+  .card-date::before {
+    content: '📅'; font-size: 12px; opacity: 0.7;
+  }
+  .card-name {
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 22px;
+    color: #fff; margin: 4px 0 6px; letter-spacing: -0.01em; line-height: 1.2;
+  }
+  .card-tagline {
+    font-size: 13px; color: var(--text-mute); margin-bottom: 16px; line-height: 1.5;
+  }
+
+  /* Playplay - 玩法 sections inside a card */
+  .plays { display: flex; flex-direction: column; gap: 12px; }
+  .play {
+    background: rgba(0,0,0,0.28); border: 1px solid var(--border);
+    border-radius: 12px; padding: 14px;
+  }
+  .play-head {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 10px; gap: 10px; flex-wrap: wrap;
+  }
+  .play-name {
+    font-weight: 600; font-size: 14px; color: #fff;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .play-tag {
+    font-family: 'Outfit', sans-serif; font-size: 10px; font-weight: 700;
+    letter-spacing: 1.5px; color: var(--accent-2);
+    background: rgba(34,211,238,0.10); padding: 2px 8px; border-radius: 999px;
+    border: 1px solid rgba(34,211,238,0.25);
+  }
+  .play-ddl {
+    font-size: 11px; color: var(--amber);
+    background: rgba(255,181,71,0.10); border: 1px solid rgba(255,181,71,0.28);
+    padding: 3px 9px; border-radius: 999px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .play-ddl::before { content: '⏰'; font-size: 11px; }
+  .fields { display: grid; grid-template-columns: 1fr; gap: 10px; }
+  .field {
+    display: grid; grid-template-columns: 120px 1fr; gap: 10px;
+    font-size: 12.5px; line-height: 1.55;
+  }
+  .field-lbl {
+    color: var(--text-dim); font-size: 11px; letter-spacing: 1px;
+    text-transform: uppercase; font-weight: 600; padding-top: 2px;
+  }
+  .field-val { color: var(--text); white-space: pre-line; }
+  .field-val strong { color: #fff; font-weight: 600; }
+  .cta {
+    margin-top: 12px; display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 14px; background: linear-gradient(135deg, #6d5efd, #22d3ee);
+    color: #fff; font-weight: 600; font-size: 13px; border-radius: 10px;
+    transition: all 0.2s ease; align-self: flex-start;
+    box-shadow: 0 6px 20px rgba(109, 94, 253, 0.35);
+  }
+  .cta:hover { transform: translateY(-1px); box-shadow: 0 10px 30px rgba(109, 94, 253, 0.5); }
+  .cta::after { content: '→'; font-weight: 700; transition: transform 0.2s; }
+  .cta:hover::after { transform: translateX(3px); }
+  .cta.disabled {
+    background: rgba(255,255,255,0.05); color: var(--text-mute); cursor: not-allowed;
+    box-shadow: none; border: 1px dashed var(--border-strong);
+  }
+  .cta.disabled::after { content: '·'; }
+  .cta.multi { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .cta.multi::after { display: none; }
+  .cta-multi-link {
+    display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
+    background: rgba(255,255,255,0.08); border-radius: 8px; font-size: 12px;
+    color: #fff; font-weight: 500; transition: all 0.2s;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .cta-multi-link:hover { background: rgba(255,255,255,0.14); transform: translateX(2px); }
+  .cta-multi-link::after { content: '↗'; margin-left: 4px; opacity: 0.7; }
+
+  /* Footer */
+  .footer {
+    margin-top: 60px; padding-top: 24px; border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px; color: var(--text-dim); font-size: 12px;
+  }
+  .footer strong { color: var(--text-mute); font-weight: 500; }
+
+  /* Mobile */
+  @media (max-width: 900px) {
+    .container { padding: 24px 16px 60px; }
+    .cal-grid { gap: 4px; }
+    .cal-cell { min-height: 78px; padding: 6px 6px 8px; }
+    .cal-date { font-size: 14px; }
+    .cal-event { font-size: 9px; padding: 2px 4px; }
+    .field { grid-template-columns: 1fr; gap: 4px; }
+    .header-right { text-align: left; min-width: auto; }
+    .stat-row { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div>
+        <div class="brand">
+          <div class="brand-mark"></div>
+          <div>
+            <div class="brand-title">TikTok Shop · Seller Center</div>
+            <div class="brand-sub">MERCHANT ACTIVITY HUB · 2026</div>
+          </div>
+        </div>
+        <h1 class="page-title">2026 年 8 月<br/>商家活动大全</h1>
+        <p class="page-sub">聚合 PH / SG / VN 三站点 8 月全月官方大促与激励玩法。点击卡片内的"立即报名"直达商家后台报名入口，把握每一次成交爆发窗口。</p>
+      </div>
+      <div class="header-right">
+        <div class="stat-row">
+          <div class="stat">
+            <div class="stat-val" id="stat-events">5</div>
+            <div class="stat-lbl">Campaigns</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val" id="stat-plays">12</div>
+            <div class="stat-lbl">Play Modes</div>
+          </div>
+          <div class="stat">
+            <div class="stat-val">3</div>
+            <div class="stat-lbl">Markets</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="calendar" role="tab">
+        <span class="tab-dot"></span>活动日历
+      </button>
+      <button class="tab" data-tab="details" role="tab">
+        <span class="tab-dot"></span>8 月活动详情
+      </button>
+    </div>
+
+    <!-- Panel 1: Calendar -->
+    <div class="panel active" id="panel-calendar">
+      <div class="legend">
+        <span class="legend-label">图例</span>
+        <span class="legend-item"><span class="legend-dot dot-ph"></span>PH 菲律宾</span>
+        <span class="legend-item"><span class="legend-dot dot-sg"></span>SG 新加坡</span>
+        <span class="legend-item"><span class="legend-dot dot-vn"></span>VN 越南</span>
+        <span class="legend-item"><span class="legend-dot dot-cb"></span>跨境自有</span>
+      </div>
+
+      <div class="calendar-wrap">
+        <div class="calendar-title">
+          <span class="cal-month">August</span>
+          <span class="cal-year">2026 · 08</span>
+          <span class="cal-count">共 8 场活动</span>
+        </div>
+        <div class="cal-grid" id="cal-grid"></div>
+      </div>
+    </div>
+
+    <!-- Panel 2: Details -->
+    <div class="panel" id="panel-details">
+      <div class="country-filter" id="country-filter">
+        <button class="cf-btn active" data-country="all">全部 <span class="cf-count" id="cnt-all">0</span></button>
+        <button class="cf-btn" data-country="PH"><span class="legend-dot dot-ph"></span>PH 菲律宾 <span class="cf-count" id="cnt-PH">0</span></button>
+        <button class="cf-btn" data-country="SG"><span class="legend-dot dot-sg"></span>SG 新加坡 <span class="cf-count" id="cnt-SG">0</span></button>
+        <button class="cf-btn" data-country="VN"><span class="legend-dot dot-vn"></span>VN 越南 <span class="cf-count" id="cnt-VN">0</span></button>
+      </div>
+
+      <div class="cards" id="cards"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div><strong>Aime</strong> · TikTok Shop Merchant Activity Hub</div>
+      <div>数据来源：官方 All-in-One 活动招商方案 · 报名以商家后台为准 · 生成于 2026-08-05</div>
+    </div>
+  </div>
+
+<script>
+// ============ DATA ============
+// 8月活动详情：country + name + date + tagline + plays[]
+// Each play: { name, tag(可选), ddl, requirement, benefit, links[] }
+const CAMPAIGNS = [
+  {
+    id: 'ph-friday-friyay',
+    country: 'PH', countryFull: '菲律宾',
+    name: 'Friday Friyay',
+    date: '8/20 - 8/21',
+    startDay: 20, endDay: 21,
+    tagline: '每周五爆发日专属激励，叠加 WOW Sulit 合资货补与 100% 包邮玩法，带来强力成交爆发。',
+    plays: [
+      {
+        name: '单商家活动激励包', tag: 'GMV BOOST',
+        ddl: '8/14',
+        requirement: '1. GMV 爆发系数 vs 基准期 ≥ 110%，广告投入 vs 基准期增加 10%\n2. 需同时报名 WOW Sulit 合资货补 + 100% 包邮玩法',
+        benefit: '1. 单商家提报活动目标的 GMV 8~12% 补贴，最高可得 $4K\n2. 共享各玩法补贴、券增发券及站内非标资源',
+        links: []
+      },
+      {
+        name: '100% 包邮', tag: 'FREE SHIPPING',
+        ddl: '8/14',
+        requirement: '1. 商品供应价：站外 ≤ 同款供应价；站内比 L30D 最低价再低 3%\n2. 商品库存管理：给到充足的商品库存，参与锁库存项目',
+        benefit: '运费券（无最低消费门槛）',
+        links: [{label: '立即报名', url: 'https://m.tiktok.shop/s/AKyOgEzgL55E'}]
+      },
+      {
+        name: 'WOW Sulit 合资货补', tag: 'CO-FUND',
+        ddl: '8/14',
+        requirement: '≤ L30D 商品最低供应价',
+        benefit: 'MDP 商家：补贴率 5%-10%（可和 MDP 券叠加）\n非 MDP 商家：补贴率 7%-15%',
+        links: [{label: '立即报名', url: 'https://m.tiktok.shop/s/AJoCXEq1vhya'}]
+      }
+    ]
+  },
+  {
+    id: 'sg-shop-the-world',
+    country: 'SG', countryFull: '新加坡',
+    name: 'Shop the World',
+    date: '8/27 - 8/31',
+    startDay: 27, endDay: 31,
+    tagline: '新加坡站月末重点大促，平台全资券叠加合资券双重加持，锁定订单量爆发窗口。',
+    plays: [
+      {
+        name: '平台全资券 // FFV', tag: 'FULLY-FUNDED',
+        ddl: 'TBU',
+        requirement: '≤ L30D 商品最低活动价',
+        benefit: 'BXP 商家：最高补贴率 13%\n非 BXP 商家：最高补贴率 8%',
+        links: []
+      },
+      {
+        name: '合资券 // CFV', tag: 'CO-FUND',
+        ddl: 'TBU',
+        requirement: '≤ L30D 商品最低活动价',
+        benefit: '最高补贴率 8%（平台和商家出资比例各 50%）',
+        links: []
+      }
+    ]
+  },
+  {
+    id: 'vn-back-to-school',
+    country: 'VN', countryFull: '越南',
+    name: 'Back To School',
+    date: '8/17 - 8/19',
+    startDay: 17, endDay: 19,
+    tagline: '越南开学季重点大促，重点直播（KLS）+ 合资券协同发力，抢占开学季销量高峰。',
+    plays: [
+      {
+        name: '重点直播商家 // KLS', tag: 'LIVE STREAM',
+        ddl: '8/13',
+        requirement: '1. 商家必须报名 VXP\n2. 活动期店铺 GMV ≥ $5K，ADS TR ≥ 1.5%',
+        benefit: '单商家提报活动目标的 GMV 2~7% 补贴',
+        links: [{label: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/live-campaign/detail/7660838258540119829?channel=am&track_id=7d6b67269a9e56ff27ba30c28bbed225&shop_region=VN'}]
+      },
+      {
+        name: '合资券 // CFV', tag: 'CO-FUND',
+        ddl: '8/13',
+        requirement: '1. 商家必须报名 VXP\n2. ≤ L30D 商品最低活动价',
+        benefit: '最高补贴率 25%（出资比例：平台 70%，卖家 30%）',
+        links: [{label: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/all?channel=am&track_id=e16adc4a87edfbbd604c969b23e33f28&shop_region=VN'}]
+      }
+    ]
+  },
+  {
+    id: 'vn-monthly-20th',
+    country: 'VN', countryFull: '越南',
+    name: 'Monthly 20th Supersale Day',
+    date: '8/20',
+    startDay: 20, endDay: 20,
+    tagline: '每月 20 号超级大促日，KLS + 合资券 + 闪购三重玩法齐发，最高补贴率 25%。',
+    plays: [
+      {
+        name: 'KLS 重点直播', tag: 'LIVE STREAM',
+        ddl: '8/14',
+        requirement: '最低 GMV 目标 $5K，ADS TR ≥ 1.5%',
+        benefit: '单商家提报活动目标的 GMV 2~7% 补贴',
+        links: []
+      },
+      {
+        name: '合资券 // CFV', tag: 'CO-FUND',
+        ddl: '8/17',
+        requirement: '≤ L30D 商品最低活动价',
+        benefit: '最高补贴率 25%（出资比例：平台 70%，卖家 30%）',
+        links: [{label: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7645245113978996498/select-online?channel=am&track_id=3927612044097ec3f26ae05c73db9e30&shop_region=VN'}]
+      },
+      {
+        name: '闪购 // Flashsale', tag: 'FLASHSALE',
+        ddl: '8/17',
+        requirement: '1. ≤ L30D 商品最低活动价\n2. 补贴后商品价格 ≤ 其他平台',
+        benefit: '最高补贴率 15%',
+        links: [
+          {label: '每日闪购报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7638481483761649409/select-online?channel=am&track_id=0a1fd08bc5fad573acc2db93bdf84568&shop_region=VN'},
+          {label: '超级闪购报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7638481483761649409/select-online?channel=am&track_id=4e3bdebb01e13e0367f17e1bb12553c2&shop_region=VN'}
+        ]
+      }
+    ]
+  },
+  {
+    id: 'vn-mall-day',
+    country: 'VN', countryFull: '越南',
+    name: 'Mall Day',
+    date: '8/21',
+    startDay: 21, endDay: 21,
+    tagline: '越南 Mall 商家专属大促日，KLS + 合资券组合放送，MALL 商家最高补贴率 25%。',
+    plays: [
+      {
+        name: 'KLS 重点直播', tag: 'LIVE STREAM',
+        ddl: 'TBU',
+        requirement: '1. 商家必须报名 VXP\n2. 最低 GMV 目标 $5K，ADS TR ≥ 1.5%',
+        benefit: '单商家提报活动目标的 GMV 2~7% 补贴',
+        links: []
+      },
+      {
+        name: '合资券 // CFV', tag: 'CO-FUND MALL',
+        ddl: 'TBU',
+        requirement: '1. 必须是 MALL 商家并参与 VXP\n2. ≤ L30D 商品最低活动价',
+        benefit: '补贴率 13% ~ 25%（出资比例：平台 50%~70%，卖家 50%~30%）',
+        links: []
+      }
+    ]
+  }
+];
+
+// 日历事件（部分活动尚未公布详情，仅在日历中展示占位）
+const CAL_EXTRA = [
+  { day: 22, country: 'VN', name: 'Tiktok Fashionista', status: 'preview' },
+  { day: 27, country: 'CB', name: 'K Brand Day (PH/MY/VN)', status: 'preview' },
+  { day: 31, country: 'CB', name: 'K Brand Day (PH/MY/VN)', status: 'preview' }
+];
+
+// ============ RENDER CALENDAR ============
+// 2026-08: August 1 is Saturday. Monday-first grid.
+// Prev filler: Mon(27) Tue(28) Wed(29) Thu(30) Fri(31) Sat(1) Sun(2) -> row1
+const daysInAug = 31;
+const firstDayIndex = 5; // Mon=0 ... Sat=5, so Aug 1 is Saturday
+const calGrid = document.getElementById('cal-grid');
+const heads = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+
+// build map of events by day
+const eventsByDay = {};
+function pushEv(day, ev){ (eventsByDay[day] = eventsByDay[day] || []).push(ev); }
+CAMPAIGNS.forEach(c => {
+  for (let d = c.startDay; d <= c.endDay; d++) {
+    pushEv(d, { country: c.country, name: c.name, id: c.id, status: 'active' });
+  }
+});
+CAL_EXTRA.forEach(e => pushEv(e.day, e));
+
+// Header row
+heads.forEach(h => {
+  const el = document.createElement('div');
+  el.className = 'cal-head';
+  el.textContent = h;
+  calGrid.appendChild(el);
+});
+
+// Prev month filler (July 27-31 = 5 days) but our firstDayIndex=5 means 5 slots before
+// Actually if Aug 1 is at index 5 (Saturday), we need slots 0-4 filled with prev month
+const prevDaysCount = firstDayIndex; // 5
+const prevStart = 31 - prevDaysCount + 1; // July 27
+for (let i = 0; i < prevDaysCount; i++) {
+  const cell = document.createElement('div');
+  cell.className = 'cal-cell other';
+  cell.innerHTML = `<div class="cal-date">${prevStart + i}</div>`;
+  calGrid.appendChild(cell);
+}
+
+// August 1-31
+for (let d = 1; d <= daysInAug; d++) {
+  const idx = firstDayIndex + d - 1;
+  const dow = idx % 7;
+  const cell = document.createElement('div');
+  const evs = eventsByDay[d] || [];
+  cell.className = 'cal-cell' + (evs.length ? ' has-events' : '') + ((dow===5||dow===6) ? ' weekend' : '');
+  const evsHtml = evs.map(e => {
+    const cls = e.country === 'PH' ? 'ph' : e.country === 'SG' ? 'sg' : e.country === 'VN' ? 'vn' : 'cb';
+    const label = e.status === 'preview' ? '预告 · ' + e.name : e.name;
+    return `<div class="cal-event ${cls}" title="${label}"><span class="cal-ev-dot"></span>${label}</div>`;
+  }).join('');
+  cell.innerHTML = `<div class="cal-date">${d}</div><div class="cal-events">${evsHtml}</div>`;
+  calGrid.appendChild(cell);
+}
+
+// Next month filler
+const totalCells = prevDaysCount + daysInAug;
+const remainder = totalCells % 7;
+const nextFill = remainder === 0 ? 0 : 7 - remainder;
+for (let i = 1; i <= nextFill; i++) {
+  const cell = document.createElement('div');
+  cell.className = 'cal-cell other';
+  cell.innerHTML = `<div class="cal-date">${i}</div>`;
+  calGrid.appendChild(cell);
+}
+
+// ============ RENDER CARDS ============
+const cardsEl = document.getElementById('cards');
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function renderCards(filter) {
+  const list = filter === 'all' ? CAMPAIGNS : CAMPAIGNS.filter(c => c.country === filter);
+  cardsEl.innerHTML = list.map(c => {
+    const countryClass = c.country.toLowerCase();
+    const playsHtml = c.plays.map(p => {
+      let ctaHtml = '';
+      if (!p.links || p.links.length === 0) {
+        ctaHtml = `<span class="cta disabled">报名链接 TBU</span>`;
+      } else if (p.links.length === 1) {
+        ctaHtml = `<a class="cta" href="${esc(p.links[0].url)}" target="_blank" rel="noopener">${esc(p.links[0].label)}</a>`;
+      } else {
+        const inner = p.links.map(l => `<a class="cta-multi-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('');
+        ctaHtml = `<div class="cta multi" style="background:transparent;box-shadow:none;padding:0;">${inner}</div>`;
+      }
+      const ddlHtml = p.ddl ? `<span class="play-ddl">报名截止 ${esc(p.ddl)}</span>` : '';
+      return `
+        <div class="play">
+          <div class="play-head">
+            <div class="play-name">${esc(p.name)}${p.tag ? `<span class="play-tag">${esc(p.tag)}</span>` : ''}</div>
+            ${ddlHtml}
+          </div>
+          <div class="fields">
+            <div class="field">
+              <div class="field-lbl">商家要求</div>
+              <div class="field-val">${esc(p.requirement)}</div>
+            </div>
+            <div class="field">
+              <div class="field-lbl">商家收益</div>
+              <div class="field-val">${esc(p.benefit)}</div>
+            </div>
+          </div>
+          ${ctaHtml}
+        </div>`;
+    }).join('');
+
+    return `
+      <div class="card country-${countryClass}" data-country="${c.country}">
+        <div class="card-head">
+          <span class="card-country ${countryClass}"><span class="legend-dot dot-${countryClass}"></span>${c.country} · ${c.countryFull}</span>
+          <span class="card-date">${esc(c.date)}</span>
+        </div>
+        <div class="card-name">${esc(c.name)}</div>
+        <div class="card-tagline">${esc(c.tagline)}</div>
+        <div class="plays">${playsHtml}</div>
+      </div>`;
+  }).join('');
+}
+renderCards('all');
+
+// Filter buttons
+document.querySelectorAll('.cf-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.cf-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCards(btn.dataset.country);
+  });
+});
+
+// Counts
+document.getElementById('cnt-all').textContent = CAMPAIGNS.length;
+['PH','SG','VN'].forEach(c => {
+  document.getElementById('cnt-' + c).textContent = CAMPAIGNS.filter(x => x.country === c).length;
+});
+document.getElementById('stat-events').textContent = CAMPAIGNS.length;
+document.getElementById('stat-plays').textContent = CAMPAIGNS.reduce((s,c) => s + c.plays.length, 0);
+
+// Tabs
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
