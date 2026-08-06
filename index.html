@@ -372,6 +372,14 @@
   }
   .cta.disabled::after { content: '·'; }
 
+  .cta.info-text {
+    background: rgba(255,181,71,0.12);
+    border: 1px solid rgba(255,181,71,0.35);
+    color: #ffd18a;
+    box-shadow: none; cursor: default;
+  }
+  .cta.info-text::after { content: '💬'; font-weight: normal; }
+
   .cta.secondary {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(255,255,255,0.15);
@@ -481,6 +489,17 @@
         <div class="cal-head-row" id="cal-head-row"></div>
         <div class="cal-weeks" id="cal-weeks"></div>
       </div>
+
+      <!-- September Calendar -->
+      <div class="calendar-wrap" style="margin-top: 24px;">
+        <div class="calendar-title">
+          <span class="cal-month">September</span>
+          <span class="cal-year">2026 · 09</span>
+          <span class="cal-count" id="cal-count-sep">共 0 场活动</span>
+        </div>
+        <div class="cal-head-row" id="cal-head-row-sep"></div>
+        <div class="cal-weeks" id="cal-weeks-sep"></div>
+      </div>
     </div>
 
     <!-- Panel 2: Details -->
@@ -519,9 +538,9 @@ const CAMPAIGNS = [
       {
         name: '单商家活动激励包', tag: 'GMV BOOST',
         ddl: '8/14',
-        requirement: '1. GMV 爆发系数 vs 基准期 ≥ 110%，广告投入 vs 基准期增加 10%\n2. 需同时报名 WOW Sulit 合资货补 + 100% 包邮玩法',
+        requirement: '1. 活动日均自播 GMV 大于 $2K，爆发系数 vs 基准期 ≥ 110%，广告投入 vs 基准期增加 10%\n2. 需同时报名 WOW Sulit 合资货补 + 100% 包邮玩法',
         benefit: '1. 单商家提报活动目标的 GMV 8~12% 补贴，最高可得 $4K\n2. 共享各玩法补贴、券增发券及站内非标资源',
-        links: [],
+        links: [{label: '联系店铺的运营经理提报', url: ''}],
         plan: 'https://bytedance.sg.larkoffice.com/docx/QZOfwPBwmiykL9kYvDscd6AanpT'
       },
       {
@@ -604,7 +623,7 @@ const CAMPAIGNS = [
         ddl: '8/14',
         requirement: '最低 GMV 目标 $5K，ADS TR ≥ 1.5%',
         benefit: '单商家提报活动目标的 GMV 2~7% 补贴',
-        links: []
+        links: [{label: '联系店铺的运营经理提报', url: ''}]
       },
       {
         name: '合资券 // CFV', tag: 'CO-FUND',
@@ -654,8 +673,7 @@ const CAMPAIGNS = [
 // 仅在活动日历中展示（详情表格未提供玩法信息，故不进入详情卡片）
 const CALENDAR_EXTRAS = [
   { country: 'VN', name: 'Tiktok Fashionista', startDay: 22, endDay: 22 },
-  { country: 'CB', name: 'K Brand Day (PH/MY/VN)', startDay: 27, endDay: 27 },
-  { country: 'CB', name: 'K Brand Day (PH/MY/VN)', startDay: 31, endDay: 31 }
+  { country: 'CB', name: 'K Brand Day (PH/MY/VN)', startDay: 27, endDay: 31 }
 ];
 
 // ============ RENDER CALENDAR (weekly rows with spanning bars) ============
@@ -782,6 +800,119 @@ document.getElementById('cal-count').textContent = `共 ${uniqueCalNames.size} �
 
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
+// ============ RENDER SEPTEMBER CALENDAR ============
+const SEP_EVENTS = [
+  { country: 'SG', name: 'Shop the World', startDay: 10, endDay: 14 },
+  { country: 'VN', name: 'Mall Day', startDay: 11, endDay: 11 },
+  { country: 'PH', name: 'Friday Friyay', startDay: 17, endDay: 17 },
+  { country: 'VN', name: 'Mall Day', startDay: 18, endDay: 18 },
+  { country: 'PH', name: 'AI TECH DAY (PH/TH)', startDay: 19, endDay: 21 },
+  { country: 'SG', name: 'Shop the World', startDay: 21, endDay: 21 },
+  { country: 'PH', name: 'Friday Friyay', startDay: 24, endDay: 24 },
+  { country: 'CB', name: 'Fashion New Season (TH/VN)', startDay: 26, endDay: 28 },
+  { country: 'VN', name: 'Creator Festival', startDay: 28, endDay: 28 }
+];
+
+(function renderSepCalendar() {
+  // Sep 2026: Sep 1 = Tuesday. Mon-first grid → 1 filler cell (Mon=Aug31)
+  const daysInSep = 30;
+  const sepFirstDayIndex = 1; // Tue=1 (Mon=0)
+  const sepHeadEl = document.getElementById('cal-head-row-sep');
+  heads.forEach(h => {
+    const el = document.createElement('div');
+    el.className = 'cal-head';
+    el.textContent = h;
+    sepHeadEl.appendChild(el);
+  });
+
+  const sepCells = [];
+  // Prev month filler (1 cell: Aug 31)
+  sepCells.push({ day: 31, other: true, weekday: 0 });
+  for (let d = 1; d <= daysInSep; d++) {
+    const idx = sepFirstDayIndex + d - 1;
+    sepCells.push({ day: d, other: false, weekday: idx % 7, month: 9 });
+  }
+  const sepTotal = sepCells.length;
+  const sepRem = sepTotal % 7;
+  const sepNextFill = sepRem === 0 ? 0 : 7 - sepRem;
+  for (let i = 1; i <= sepNextFill; i++) {
+    sepCells.push({ day: i, other: true, weekday: (sepFirstDayIndex + daysInSep + i - 1) % 7 });
+  }
+  const sepWeeks = [];
+  for (let i = 0; i < sepCells.length; i += 7) sepWeeks.push(sepCells.slice(i, i + 7));
+
+  // Build segments
+  const sepWeekSegments = sepWeeks.map(() => []);
+  SEP_EVENTS.forEach(c => {
+    const idxStart = sepFirstDayIndex + c.startDay - 1;
+    const idxEnd = sepFirstDayIndex + c.endDay - 1;
+    let cur = idxStart;
+    while (cur <= idxEnd) {
+      const weekIdx = Math.floor(cur / 7);
+      const weekStart = weekIdx * 7;
+      const weekEnd = weekStart + 6;
+      const segStart = cur;
+      const segEnd = Math.min(idxEnd, weekEnd);
+      sepWeekSegments[weekIdx].push({
+        country: c.country, name: c.name,
+        startDay: c.startDay, endDay: c.endDay,
+        colStart: segStart - weekStart + 1,
+        colEnd: segEnd - weekStart + 1,
+        continuesLeft: segStart > idxStart,
+        continuesRight: segEnd < idxEnd
+      });
+      cur = segEnd + 1;
+    }
+  });
+  // Assign lanes
+  sepWeekSegments.forEach(segs => {
+    segs.sort((a,b) => a.colStart - b.colStart || (b.colEnd - b.colStart) - (a.colEnd - a.colStart));
+    const lanes = [];
+    segs.forEach(s => {
+      let lane = 0;
+      while (lane < lanes.length && lanes[lane] >= s.colStart) lane++;
+      s.lane = lane;
+      lanes[lane] = s.colEnd;
+    });
+  });
+
+  // Render
+  const sepWeeksEl = document.getElementById('cal-weeks-sep');
+  sepWeeks.forEach((week, wi) => {
+    const wkEl = document.createElement('div');
+    wkEl.className = 'cal-week';
+    const maxLane = sepWeekSegments[wi].reduce((m, s) => Math.max(m, s.lane), -1);
+    wkEl.style.gridTemplateRows = `min-content ${'min-content '.repeat(maxLane + 1).trim()}`.trim();
+
+    week.forEach((c) => {
+      const cell = document.createElement('div');
+      const isWeekend = c.weekday === 5 || c.weekday === 6;
+      cell.className = 'cal-cell' + (c.other ? ' other' : '') + (isWeekend ? ' weekend' : '');
+      cell.style.gridRow = '1';
+      const monthLbl = c.other ? (c.day > 15 ? 'Aug' : 'Oct') : '';
+      cell.innerHTML = `<div class="cal-date"><span>${c.day}</span>${monthLbl ? `<span class="cal-date-sub">${monthLbl}</span>` : ''}</div>`;
+      wkEl.appendChild(cell);
+    });
+
+    sepWeekSegments[wi].forEach(s => {
+      const bar = document.createElement('div');
+      bar.className = 'cal-bar ' + countryCls(s.country)
+        + (s.continuesLeft ? ' continues-left' : '')
+        + (s.continuesRight ? ' continues-right' : '');
+      bar.style.gridColumn = `${s.colStart} / ${s.colEnd + 1}`;
+      bar.style.gridRow = String(s.lane + 2);
+      const spanNote = s.startDay === s.endDay ? `${s.startDay}` : `${s.startDay}-${s.endDay}`;
+      bar.innerHTML = `<span class="bar-dot"></span><span>${escapeHtml(s.name)}</span><span class="bar-date">${spanNote}</span>`;
+      bar.title = `${s.country} · ${s.name} · 9/${spanNote}`;
+      wkEl.appendChild(bar);
+    });
+    sepWeeksEl.appendChild(wkEl);
+  });
+
+  const uniqueSepNames = new Set(SEP_EVENTS.map(x => x.name));
+  document.getElementById('cal-count-sep').textContent = `共 ${uniqueSepNames.size} 场活动`;
+})();
+
 // ============ RENDER CARDS ============
 const cardsEl = document.getElementById('cards');
 
@@ -795,10 +926,18 @@ function renderCards(filter) {
       if (!p.links || p.links.length === 0) {
         ctaItems.push(`<span class="cta disabled">报名链接 TBU</span>`);
       } else if (p.links.length === 1) {
-        ctaItems.push(`<a class="cta" href="${escapeHtml(p.links[0].url)}" target="_blank" rel="noopener">${escapeHtml(p.links[0].label)}</a>`);
+        if (p.links[0].url) {
+          ctaItems.push(`<a class="cta" href="${escapeHtml(p.links[0].url)}" target="_blank" rel="noopener">${escapeHtml(p.links[0].label)}</a>`);
+        } else {
+          ctaItems.push(`<span class="cta info-text">${escapeHtml(p.links[0].label)}</span>`);
+        }
       } else {
         p.links.forEach(l => {
-          ctaItems.push(`<a class="cta" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`);
+          if (l.url) {
+            ctaItems.push(`<a class="cta" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`);
+          } else {
+            ctaItems.push(`<span class="cta info-text">${escapeHtml(l.label)}</span>`);
+          }
         });
       }
       if (p.plan) {
