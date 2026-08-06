@@ -651,6 +651,13 @@ const CAMPAIGNS = [
   }
 ];
 
+// 仅在活动日历中展示（详情表格未提供玩法信息，故不进入详情卡片）
+const CALENDAR_EXTRAS = [
+  { country: 'VN', name: 'Tiktok Fashionista', startDay: 22, endDay: 22 },
+  { country: 'CB', name: 'K Brand Day (PH/MY/VN)', startDay: 27, endDay: 27 },
+  { country: 'CB', name: 'K Brand Day (PH/MY/VN)', startDay: 31, endDay: 31 }
+];
+
 // ============ RENDER CALENDAR (weekly rows with spanning bars) ============
 // 2026-08: Aug 1 is Saturday. Monday-first grid.
 const daysInAug = 31;
@@ -692,7 +699,8 @@ function countryCls(c) { return c === 'PH' ? 'ph' : c === 'SG' ? 'sg' : c === 'V
 
 // For each week, produce list of segments {country, name, colStart(1-7), colEnd(1-7), continuesLeft, continuesRight}
 const weekSegments = weeks.map(() => []);
-CAMPAIGNS.forEach(c => {
+const ALL_CAL_ITEMS = [...CAMPAIGNS, ...CALENDAR_EXTRAS];
+ALL_CAL_ITEMS.forEach(c => {
   // Determine linear indices (in cells array) covered by the campaign in August
   const idxStart = firstDayIndex + c.startDay - 1;
   const idxEnd = firstDayIndex + c.endDay - 1;
@@ -769,7 +777,8 @@ weeks.forEach((week, wi) => {
   weeksEl.appendChild(wkEl);
 });
 
-document.getElementById('cal-count').textContent = `共 ${CAMPAIGNS.length} 场活动`;
+const uniqueCalNames = new Set(ALL_CAL_ITEMS.map(x => x.name));
+document.getElementById('cal-count').textContent = `共 ${uniqueCalNames.size} 场活动`;
 
 function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
