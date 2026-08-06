@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TikTok Shop 商家活动大全 · 2026 年 8 月</title>
+<title>2026 年 SEA 行业 / 主题活动大全</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -65,29 +65,26 @@
   }
   .brand-mark::after {
     content: ''; position: absolute; inset: 6px; border-radius: 8px; background: #05060a;
-    display: flex; align-items: center; justify-content: center;
   }
   .brand-mark::before {
     content: 'TS'; position: absolute; inset: 0;
     display: flex; align-items: center; justify-content: center;
     font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 14px; color: #fff; z-index: 2;
   }
-  .brand-title {
-    font-size: 22px; font-weight: 700; color: #fff;
-  }
+  .brand-title { font-size: 22px; font-weight: 700; color: #fff; }
   .brand-sub {
     font-size: 12px; color: var(--text-mute); letter-spacing: 1.5px; text-transform: uppercase;
   }
   h1.page-title {
     font-family: 'Outfit', sans-serif;
-    font-size: clamp(38px, 5vw, 62px);
+    font-size: clamp(38px, 5vw, 60px);
     font-weight: 800; line-height: 1.05; margin: 12px 0 6px;
     background: linear-gradient(120deg, #ffffff 0%, #cdd4e0 40%, #a9b1c6 100%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
     letter-spacing: -0.02em;
   }
   .page-sub {
-    color: var(--text-mute); font-size: 15px; max-width: 620px; line-height: 1.6;
+    color: var(--text-mute); font-size: 15px; max-width: 640px; line-height: 1.6;
   }
   .header-right { text-align: right; min-width: 260px; }
   .stat-row {
@@ -154,7 +151,7 @@
   .dot-vn { background: var(--vn); box-shadow: 0 0 12px var(--vn); }
   .dot-cb { background: var(--kbrand); box-shadow: 0 0 12px var(--kbrand); }
 
-  /* Calendar */
+  /* Calendar wrap */
   .calendar-wrap {
     background: var(--card); border: 1px solid var(--border);
     border-radius: 20px; padding: 24px; backdrop-filter: blur(20px);
@@ -170,41 +167,73 @@
   }
   .cal-year { font-size: 14px; color: var(--text-mute); letter-spacing: 3px; }
   .cal-count {
-    margin-left: auto; font-size: 13px; color: var(--text-mute);
+    margin-left: auto; font-size: 13px;
     background: rgba(109, 94, 253, 0.12); border: 1px solid rgba(109, 94, 253, 0.35);
     padding: 4px 12px; border-radius: 999px; color: #b8b0ff;
   }
-  .cal-grid {
+
+  /* Calendar grid with weekly rows (dow header + spanning event bars) */
+  .cal-head-row {
     display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 10px;
+    gap: 6px; margin-bottom: 8px;
   }
   .cal-head {
     text-align: center; font-size: 11px; color: var(--text-mute);
     letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
     padding: 8px 0;
   }
+  .cal-weeks { display: flex; flex-direction: column; gap: 8px; }
+  .cal-week {
+    display: grid; grid-template-columns: repeat(7, minmax(0, 1fr));
+    grid-auto-rows: min-content;
+    gap: 6px;
+    background: rgba(255,255,255,0.015); border: 1px solid var(--border);
+    border-radius: 14px; padding: 8px;
+  }
   .cal-cell {
     background: rgba(255,255,255,0.02); border: 1px solid var(--border);
-    border-radius: 12px; padding: 10px 10px 12px; min-height: 108px;
-    position: relative; transition: all 0.2s ease;
+    border-radius: 10px; padding: 8px 10px 10px; min-height: 44px;
+    grid-row: 1;
     display: flex; flex-direction: column;
+    transition: background 0.2s ease;
   }
-  .cal-cell.other { opacity: 0.35; }
-  .cal-cell.has-events { background: rgba(109, 94, 253, 0.06); border-color: rgba(109, 94, 253, 0.25); }
-  .cal-cell:hover { border-color: var(--border-strong); background: rgba(255,255,255,0.04); transform: translateY(-2px); }
-  .cal-date { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 18px; color: #fff; margin-bottom: 8px; }
+  .cal-cell:hover { background: rgba(255,255,255,0.04); }
+  .cal-cell.other { opacity: 0.28; }
+  .cal-cell.today {
+    border-color: rgba(109,94,253,0.5);
+    box-shadow: 0 0 0 1px rgba(109,94,253,0.3) inset;
+  }
+  .cal-date {
+    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 16px; color: #fff;
+    display: flex; align-items: center; justify-content: space-between; gap: 4px;
+  }
   .cal-cell.weekend .cal-date { color: #ff8fb0; }
-  .cal-events { display: flex; flex-direction: column; gap: 4px; }
-  .cal-event {
-    font-size: 11px; padding: 3px 7px; border-radius: 6px; line-height: 1.3;
-    display: flex; align-items: center; gap: 5px; font-weight: 500;
-    border: 1px solid transparent;
+  .cal-date-sub { font-size: 10px; color: var(--text-dim); font-weight: 500; font-family: 'Inter', sans-serif; }
+
+  /* Event bars spanning multiple columns via grid-column */
+  .cal-bar {
+    grid-row: auto;
+    padding: 6px 10px; border-radius: 8px; font-size: 12px; font-weight: 500;
+    display: flex; align-items: center; gap: 6px;
+    border: 1px solid transparent; line-height: 1.3;
+    overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+    transition: all 0.2s ease;
   }
-  .cal-event.ph { background: rgba(255,92,138,0.14); color: #ff9fb9; border-color: rgba(255,92,138,0.35); }
-  .cal-event.sg { background: rgba(34,211,238,0.14); color: #7ce6f5; border-color: rgba(34,211,238,0.35); }
-  .cal-event.vn { background: rgba(182,255,61,0.12); color: #d1ff8f; border-color: rgba(182,255,61,0.30); }
-  .cal-event.cb { background: rgba(255,181,71,0.14); color: #ffd18a; border-color: rgba(255,181,71,0.35); }
-  .cal-ev-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+  .cal-bar:hover { filter: brightness(1.1); transform: translateY(-1px); }
+  .cal-bar.ph { background: linear-gradient(90deg, rgba(255,92,138,0.25), rgba(255,92,138,0.15)); color: #ffc4d5; border-color: rgba(255,92,138,0.45); }
+  .cal-bar.sg { background: linear-gradient(90deg, rgba(34,211,238,0.25), rgba(34,211,238,0.15)); color: #a5edf7; border-color: rgba(34,211,238,0.45); }
+  .cal-bar.vn { background: linear-gradient(90deg, rgba(182,255,61,0.22), rgba(182,255,61,0.12)); color: #dcffa5; border-color: rgba(182,255,61,0.40); }
+  .cal-bar.cb { background: linear-gradient(90deg, rgba(255,181,71,0.24), rgba(255,181,71,0.14)); color: #ffdba0; border-color: rgba(255,181,71,0.42); }
+  .cal-bar .bar-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink: 0; box-shadow: 0 0 8px currentColor; }
+  .cal-bar .bar-date { font-size: 10.5px; opacity: 0.75; margin-left: auto; padding-left: 6px; font-family: 'Outfit', sans-serif; font-weight: 600; }
+  .cal-bar.continues-left { border-top-left-radius: 2px; border-bottom-left-radius: 2px; }
+  .cal-bar.continues-right { border-top-right-radius: 2px; border-bottom-right-radius: 2px; }
+  .cal-bar.continues-left::before {
+    content: '···'; letter-spacing: 1px; opacity: 0.5; margin-right: 4px; font-size: 10px;
+  }
+  .cal-bar.continues-right::after {
+    content: '···'; letter-spacing: 1px; opacity: 0.5; margin-left: auto; font-size: 10px;
+  }
 
   /* Section title */
   .section-title {
@@ -285,7 +314,7 @@
     font-size: 13px; color: var(--text-mute); margin-bottom: 16px; line-height: 1.5;
   }
 
-  /* Playplay - 玩法 sections inside a card */
+  /* Plays inside a card */
   .plays { display: flex; flex-direction: column; gap: 12px; }
   .play {
     background: rgba(0,0,0,0.28); border: 1px solid var(--border);
@@ -323,12 +352,16 @@
   }
   .field-val { color: var(--text); white-space: pre-line; }
   .field-val strong { color: #fff; font-weight: 600; }
+
+  /* CTA row */
+  .cta-row {
+    margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;
+  }
   .cta {
-    margin-top: 12px; display: inline-flex; align-items: center; gap: 8px;
+    display: inline-flex; align-items: center; gap: 8px;
     padding: 9px 14px; background: linear-gradient(135deg, #6d5efd, #22d3ee);
     color: #fff; font-weight: 600; font-size: 13px; border-radius: 10px;
-    transition: all 0.2s ease; align-self: flex-start;
-    box-shadow: 0 6px 20px rgba(109, 94, 253, 0.35);
+    transition: all 0.2s ease; box-shadow: 0 6px 20px rgba(109, 94, 253, 0.35);
   }
   .cta:hover { transform: translateY(-1px); box-shadow: 0 10px 30px rgba(109, 94, 253, 0.5); }
   .cta::after { content: '→'; font-weight: 700; transition: transform 0.2s; }
@@ -338,16 +371,31 @@
     box-shadow: none; border: 1px dashed var(--border-strong);
   }
   .cta.disabled::after { content: '·'; }
-  .cta.multi { flex-direction: column; align-items: flex-start; gap: 6px; }
-  .cta.multi::after { display: none; }
-  .cta-multi-link {
-    display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
-    background: rgba(255,255,255,0.08); border-radius: 8px; font-size: 12px;
-    color: #fff; font-weight: 500; transition: all 0.2s;
-    border: 1px solid rgba(255,255,255,0.12);
+
+  .cta.secondary {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #e8ecf4;
+    box-shadow: none;
   }
-  .cta-multi-link:hover { background: rgba(255,255,255,0.14); transform: translateX(2px); }
-  .cta-multi-link::after { content: '↗'; margin-left: 4px; opacity: 0.7; }
+  .cta.secondary::after { content: '📄'; font-weight: normal; }
+  .cta.secondary:hover {
+    background: rgba(255,255,255,0.12);
+    box-shadow: 0 6px 20px rgba(255,255,255,0.08);
+  }
+  .cta.secondary:hover::after { transform: none; }
+
+  /* Multi-link (e.g. flashsale double registration) */
+  .cta-multi {
+    display: flex; flex-direction: column; gap: 6px; width: 100%;
+  }
+  .cta-multi-title {
+    font-size: 11px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1.5px; font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .cta-multi-links {
+    display: flex; gap: 6px; flex-wrap: wrap;
+  }
 
   /* Footer */
   .footer {
@@ -360,10 +408,11 @@
   /* Mobile */
   @media (max-width: 900px) {
     .container { padding: 24px 16px 60px; }
-    .cal-grid { gap: 4px; }
-    .cal-cell { min-height: 78px; padding: 6px 6px 8px; }
-    .cal-date { font-size: 14px; }
-    .cal-event { font-size: 9px; padding: 2px 4px; }
+    .cal-week { padding: 4px; gap: 3px; }
+    .cal-cell { min-height: 36px; padding: 4px 6px; }
+    .cal-date { font-size: 13px; }
+    .cal-bar { font-size: 10px; padding: 3px 6px; }
+    .cal-bar .bar-date { display: none; }
     .field { grid-template-columns: 1fr; gap: 4px; }
     .header-right { text-align: left; min-width: auto; }
     .stat-row { justify-content: flex-start; }
@@ -379,20 +428,20 @@
           <div class="brand-mark"></div>
           <div>
             <div class="brand-title">TikTok Shop · Seller Center</div>
-            <div class="brand-sub">MERCHANT ACTIVITY HUB · 2026</div>
+            <div class="brand-sub">MERCHANT ACTIVITY HUB · SEA 2026</div>
           </div>
         </div>
-        <h1 class="page-title">2026 年 8 月<br/>商家活动大全</h1>
-        <p class="page-sub">聚合 PH / SG / VN 三站点 8 月全月官方大促与激励玩法。点击卡片内的"立即报名"直达商家后台报名入口，把握每一次成交爆发窗口。</p>
+        <h1 class="page-title">2026 年 SEA<br/>行业 / 主题活动大全</h1>
+        <p class="page-sub">聚合 PH / SG / VN 等东南亚站点 2026 年度行业与主题活动全景，实时同步官方大促排期与激励玩法。点击"立即报名"直达商家后台报名入口，同时可查看"活动方案"文档，把握每一次成交爆发窗口。</p>
       </div>
       <div class="header-right">
         <div class="stat-row">
           <div class="stat">
-            <div class="stat-val" id="stat-events">5</div>
-            <div class="stat-lbl">Campaigns</div>
+            <div class="stat-val" id="stat-events">0</div>
+            <div class="stat-lbl">Aug Campaigns</div>
           </div>
           <div class="stat">
-            <div class="stat-val" id="stat-plays">12</div>
+            <div class="stat-val" id="stat-plays">0</div>
             <div class="stat-lbl">Play Modes</div>
           </div>
           <div class="stat">
@@ -427,9 +476,10 @@
         <div class="calendar-title">
           <span class="cal-month">August</span>
           <span class="cal-year">2026 · 08</span>
-          <span class="cal-count">共 8 场活动</span>
+          <span class="cal-count" id="cal-count">共 5 场活动</span>
         </div>
-        <div class="cal-grid" id="cal-grid"></div>
+        <div class="cal-head-row" id="cal-head-row"></div>
+        <div class="cal-weeks" id="cal-weeks"></div>
       </div>
     </div>
 
@@ -447,15 +497,16 @@
 
     <!-- Footer -->
     <div class="footer">
-      <div><strong>Aime</strong> · TikTok Shop Merchant Activity Hub</div>
-      <div>数据来源：官方 All-in-One 活动招商方案 · 报名以商家后台为准 · 生成于 2026-08-05</div>
+      <div><strong>Aime</strong> · TikTok Shop Merchant Activity Hub · 2026 SEA</div>
+      <div>数据来源：官方 All-in-One 活动招商方案 · 报名以商家后台为准 · 更新于 2026-08-06</div>
     </div>
   </div>
 
 <script>
 // ============ DATA ============
 // 8月活动详情：country + name + date + tagline + plays[]
-// Each play: { name, tag(可选), ddl, requirement, benefit, links[] }
+// Each play: { name, tag, ddl, requirement, benefit, links[], plan(可选) }
+// links: 报名链接（主）; plan: 活动方案文档链接（副）
 const CAMPAIGNS = [
   {
     id: 'ph-friday-friyay',
@@ -470,21 +521,24 @@ const CAMPAIGNS = [
         ddl: '8/14',
         requirement: '1. GMV 爆发系数 vs 基准期 ≥ 110%，广告投入 vs 基准期增加 10%\n2. 需同时报名 WOW Sulit 合资货补 + 100% 包邮玩法',
         benefit: '1. 单商家提报活动目标的 GMV 8~12% 补贴，最高可得 $4K\n2. 共享各玩法补贴、券增发券及站内非标资源',
-        links: []
+        links: [],
+        plan: 'https://bytedance.sg.larkoffice.com/docx/QZOfwPBwmiykL9kYvDscd6AanpT'
       },
       {
         name: '100% 包邮', tag: 'FREE SHIPPING',
         ddl: '8/14',
         requirement: '1. 商品供应价：站外 ≤ 同款供应价；站内比 L30D 最低价再低 3%\n2. 商品库存管理：给到充足的商品库存，参与锁库存项目',
         benefit: '运费券（无最低消费门槛）',
-        links: [{label: '立即报名', url: 'https://m.tiktok.shop/s/AKyOgEzgL55E'}]
+        links: [{label: '立即报名', url: 'https://m.tiktok.shop/s/AKyOgEzgL55E'}],
+        plan: 'https://bytedance.sg.larkoffice.com/wiki/WUhtwqKLHikJg4kWpxCcCHfDnRd'
       },
       {
         name: 'WOW Sulit 合资货补', tag: 'CO-FUND',
         ddl: '8/14',
         requirement: '≤ L30D 商品最低供应价',
         benefit: 'MDP 商家：补贴率 5%-10%（可和 MDP 券叠加）\n非 MDP 商家：补贴率 7%-15%',
-        links: [{label: '立即报名', url: 'https://m.tiktok.shop/s/AJoCXEq1vhya'}]
+        links: [{label: '立即报名', url: 'https://m.tiktok.shop/s/AJoCXEq1vhya'}],
+        plan: 'https://bytedance.sg.larkoffice.com/wiki/DeD2w6IMfiTpSXklJt0c3BfInIf'
       }
     ]
   },
@@ -525,7 +579,8 @@ const CAMPAIGNS = [
         ddl: '8/13',
         requirement: '1. 商家必须报名 VXP\n2. 活动期店铺 GMV ≥ $5K，ADS TR ≥ 1.5%',
         benefit: '单商家提报活动目标的 GMV 2~7% 补贴',
-        links: [{label: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/live-campaign/detail/7660838258540119829?channel=am&track_id=7d6b67269a9e56ff27ba30c28bbed225&shop_region=VN'}]
+        links: [{label: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/live-campaign/detail/7660838258540119829?channel=am&track_id=7d6b67269a9e56ff27ba30c28bbed225&shop_region=VN'}],
+        plan: 'https://bytedance.sg.larkoffice.com/wiki/RxrTdGcfRoT3GmxZsoIlgsSCg9b'
       },
       {
         name: '合资券 // CFV', tag: 'CO-FUND',
@@ -596,110 +651,166 @@ const CAMPAIGNS = [
   }
 ];
 
-// 日历事件（部分活动尚未公布详情，仅在日历中展示占位）
-const CAL_EXTRA = [
-  { day: 22, country: 'VN', name: 'Tiktok Fashionista', status: 'preview' },
-  { day: 27, country: 'CB', name: 'K Brand Day (PH/MY/VN)', status: 'preview' },
-  { day: 31, country: 'CB', name: 'K Brand Day (PH/MY/VN)', status: 'preview' }
-];
-
-// ============ RENDER CALENDAR ============
-// 2026-08: August 1 is Saturday. Monday-first grid.
-// Prev filler: Mon(27) Tue(28) Wed(29) Thu(30) Fri(31) Sat(1) Sun(2) -> row1
+// ============ RENDER CALENDAR (weekly rows with spanning bars) ============
+// 2026-08: Aug 1 is Saturday. Monday-first grid.
 const daysInAug = 31;
-const firstDayIndex = 5; // Mon=0 ... Sat=5, so Aug 1 is Saturday
-const calGrid = document.getElementById('cal-grid');
+const firstDayIndex = 5; // Mon=0..Sun=6; Aug 1 (Sat) => 5
 const heads = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
 
-// build map of events by day
-const eventsByDay = {};
-function pushEv(day, ev){ (eventsByDay[day] = eventsByDay[day] || []).push(ev); }
-CAMPAIGNS.forEach(c => {
-  for (let d = c.startDay; d <= c.endDay; d++) {
-    pushEv(d, { country: c.country, name: c.name, id: c.id, status: 'active' });
-  }
-});
-CAL_EXTRA.forEach(e => pushEv(e.day, e));
-
-// Header row
+// Build weekday header
+const headEl = document.getElementById('cal-head-row');
 heads.forEach(h => {
   const el = document.createElement('div');
   el.className = 'cal-head';
   el.textContent = h;
-  calGrid.appendChild(el);
+  headEl.appendChild(el);
 });
 
-// Prev month filler (July 27-31 = 5 days) but our firstDayIndex=5 means 5 slots before
-// Actually if Aug 1 is at index 5 (Saturday), we need slots 0-4 filled with prev month
+// Build 42-cell (6 weeks) linear array: {day, other, weekday}
+const cells = [];
 const prevDaysCount = firstDayIndex; // 5
 const prevStart = 31 - prevDaysCount + 1; // July 27
 for (let i = 0; i < prevDaysCount; i++) {
-  const cell = document.createElement('div');
-  cell.className = 'cal-cell other';
-  cell.innerHTML = `<div class="cal-date">${prevStart + i}</div>`;
-  calGrid.appendChild(cell);
+  cells.push({ day: prevStart + i, other: true, weekday: i });
 }
-
-// August 1-31
 for (let d = 1; d <= daysInAug; d++) {
   const idx = firstDayIndex + d - 1;
-  const dow = idx % 7;
-  const cell = document.createElement('div');
-  const evs = eventsByDay[d] || [];
-  cell.className = 'cal-cell' + (evs.length ? ' has-events' : '') + ((dow===5||dow===6) ? ' weekend' : '');
-  const evsHtml = evs.map(e => {
-    const cls = e.country === 'PH' ? 'ph' : e.country === 'SG' ? 'sg' : e.country === 'VN' ? 'vn' : 'cb';
-    const label = e.status === 'preview' ? '预告 · ' + e.name : e.name;
-    return `<div class="cal-event ${cls}" title="${label}"><span class="cal-ev-dot"></span>${label}</div>`;
-  }).join('');
-  cell.innerHTML = `<div class="cal-date">${d}</div><div class="cal-events">${evsHtml}</div>`;
-  calGrid.appendChild(cell);
+  cells.push({ day: d, other: false, weekday: idx % 7, month: 8 });
 }
-
-// Next month filler
-const totalCells = prevDaysCount + daysInAug;
+const totalCells = cells.length;
 const remainder = totalCells % 7;
 const nextFill = remainder === 0 ? 0 : 7 - remainder;
 for (let i = 1; i <= nextFill; i++) {
-  const cell = document.createElement('div');
-  cell.className = 'cal-cell other';
-  cell.innerHTML = `<div class="cal-date">${i}</div>`;
-  calGrid.appendChild(cell);
+  cells.push({ day: i, other: true, weekday: (firstDayIndex + daysInAug + i - 1) % 7 });
 }
+// Split into weeks (each 7 cells)
+const weeks = [];
+for (let i = 0; i < cells.length; i += 7) weeks.push(cells.slice(i, i + 7));
+
+// Prepare events per campaign, split by week
+function countryCls(c) { return c === 'PH' ? 'ph' : c === 'SG' ? 'sg' : c === 'VN' ? 'vn' : 'cb'; }
+
+// For each week, produce list of segments {country, name, colStart(1-7), colEnd(1-7), continuesLeft, continuesRight}
+const weekSegments = weeks.map(() => []);
+CAMPAIGNS.forEach(c => {
+  // Determine linear indices (in cells array) covered by the campaign in August
+  const idxStart = firstDayIndex + c.startDay - 1;
+  const idxEnd = firstDayIndex + c.endDay - 1;
+  // Break by week
+  let cur = idxStart;
+  while (cur <= idxEnd) {
+    const weekIdx = Math.floor(cur / 7);
+    const weekStart = weekIdx * 7;
+    const weekEnd = weekStart + 6;
+    const segStart = cur;
+    const segEnd = Math.min(idxEnd, weekEnd);
+    weekSegments[weekIdx].push({
+      country: c.country,
+      name: c.name,
+      startDay: c.startDay,
+      endDay: c.endDay,
+      colStart: segStart - weekStart + 1,   // 1-based (grid-column start)
+      colEnd: segEnd - weekStart + 1,       // 1-based inclusive
+      continuesLeft: segStart > idxStart,
+      continuesRight: segEnd < idxEnd
+    });
+    cur = segEnd + 1;
+  }
+});
+
+// Assign lanes per week so overlapping segments stack vertically
+weekSegments.forEach(segs => {
+  // Sort by colStart asc, then span desc
+  segs.sort((a,b) => a.colStart - b.colStart || (b.colEnd - b.colStart) - (a.colEnd - a.colStart));
+  const lanes = []; // lanes[i] = last colEnd occupied
+  segs.forEach(s => {
+    let lane = 0;
+    while (lane < lanes.length && lanes[lane] >= s.colStart) lane++;
+    s.lane = lane;
+    lanes[lane] = s.colEnd;
+  });
+});
+
+// Render
+const weeksEl = document.getElementById('cal-weeks');
+weeks.forEach((week, wi) => {
+  const wkEl = document.createElement('div');
+  wkEl.className = 'cal-week';
+
+  // Compute lanes count for this week (for grid-row spanning)
+  const maxLane = weekSegments[wi].reduce((m, s) => Math.max(m, s.lane), -1);
+  wkEl.style.gridTemplateRows = `min-content ${'min-content '.repeat(maxLane + 1).trim()}`.trim();
+
+  // Date cells (row 1)
+  week.forEach((c) => {
+    const cell = document.createElement('div');
+    const isWeekend = c.weekday === 5 || c.weekday === 6;
+    cell.className = 'cal-cell' + (c.other ? ' other' : '') + (isWeekend ? ' weekend' : '');
+    cell.style.gridRow = '1';
+    const monthLbl = c.other ? (c.day < 15 ? 'Sep' : 'Jul') : '';
+    cell.innerHTML = `<div class="cal-date"><span>${c.day}</span>${monthLbl ? `<span class="cal-date-sub">${monthLbl}</span>` : ''}</div>`;
+    wkEl.appendChild(cell);
+  });
+
+  // Event bars (row 2+)
+  weekSegments[wi].forEach(s => {
+    const bar = document.createElement('div');
+    bar.className = 'cal-bar ' + countryCls(s.country)
+      + (s.continuesLeft ? ' continues-left' : '')
+      + (s.continuesRight ? ' continues-right' : '');
+    bar.style.gridColumn = `${s.colStart} / ${s.colEnd + 1}`;
+    bar.style.gridRow = String(s.lane + 2);
+    const spanNote = s.startDay === s.endDay ? `${s.startDay}` : `${s.startDay}-${s.endDay}`;
+    bar.innerHTML = `<span class="bar-dot"></span><span>${escapeHtml(s.name)}</span><span class="bar-date">${spanNote}</span>`;
+    bar.title = `${s.country} · ${s.name} · 8/${spanNote}`;
+    wkEl.appendChild(bar);
+  });
+
+  weeksEl.appendChild(wkEl);
+});
+
+document.getElementById('cal-count').textContent = `共 ${CAMPAIGNS.length} 场活动`;
+
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 // ============ RENDER CARDS ============
 const cardsEl = document.getElementById('cards');
-function esc(s){ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
 
 function renderCards(filter) {
   const list = filter === 'all' ? CAMPAIGNS : CAMPAIGNS.filter(c => c.country === filter);
   cardsEl.innerHTML = list.map(c => {
     const countryClass = c.country.toLowerCase();
     const playsHtml = c.plays.map(p => {
-      let ctaHtml = '';
+      // Build CTA row
+      let ctaItems = [];
       if (!p.links || p.links.length === 0) {
-        ctaHtml = `<span class="cta disabled">报名链接 TBU</span>`;
+        ctaItems.push(`<span class="cta disabled">报名链接 TBU</span>`);
       } else if (p.links.length === 1) {
-        ctaHtml = `<a class="cta" href="${esc(p.links[0].url)}" target="_blank" rel="noopener">${esc(p.links[0].label)}</a>`;
+        ctaItems.push(`<a class="cta" href="${escapeHtml(p.links[0].url)}" target="_blank" rel="noopener">${escapeHtml(p.links[0].label)}</a>`);
       } else {
-        const inner = p.links.map(l => `<a class="cta-multi-link" href="${esc(l.url)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join('');
-        ctaHtml = `<div class="cta multi" style="background:transparent;box-shadow:none;padding:0;">${inner}</div>`;
+        p.links.forEach(l => {
+          ctaItems.push(`<a class="cta" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`);
+        });
       }
-      const ddlHtml = p.ddl ? `<span class="play-ddl">报名截止 ${esc(p.ddl)}</span>` : '';
+      if (p.plan) {
+        ctaItems.push(`<a class="cta secondary" href="${escapeHtml(p.plan)}" target="_blank" rel="noopener">活动方案</a>`);
+      }
+      const ctaHtml = `<div class="cta-row">${ctaItems.join('')}</div>`;
+      const ddlHtml = p.ddl ? `<span class="play-ddl">报名截止 ${escapeHtml(p.ddl)}</span>` : '';
       return `
         <div class="play">
           <div class="play-head">
-            <div class="play-name">${esc(p.name)}${p.tag ? `<span class="play-tag">${esc(p.tag)}</span>` : ''}</div>
+            <div class="play-name">${escapeHtml(p.name)}${p.tag ? `<span class="play-tag">${escapeHtml(p.tag)}</span>` : ''}</div>
             ${ddlHtml}
           </div>
           <div class="fields">
             <div class="field">
               <div class="field-lbl">商家要求</div>
-              <div class="field-val">${esc(p.requirement)}</div>
+              <div class="field-val">${escapeHtml(p.requirement)}</div>
             </div>
             <div class="field">
               <div class="field-lbl">商家收益</div>
-              <div class="field-val">${esc(p.benefit)}</div>
+              <div class="field-val">${escapeHtml(p.benefit)}</div>
             </div>
           </div>
           ${ctaHtml}
@@ -710,17 +821,16 @@ function renderCards(filter) {
       <div class="card country-${countryClass}" data-country="${c.country}">
         <div class="card-head">
           <span class="card-country ${countryClass}"><span class="legend-dot dot-${countryClass}"></span>${c.country} · ${c.countryFull}</span>
-          <span class="card-date">${esc(c.date)}</span>
+          <span class="card-date">${escapeHtml(c.date)}</span>
         </div>
-        <div class="card-name">${esc(c.name)}</div>
-        <div class="card-tagline">${esc(c.tagline)}</div>
+        <div class="card-name">${escapeHtml(c.name)}</div>
+        <div class="card-tagline">${escapeHtml(c.tagline)}</div>
         <div class="plays">${playsHtml}</div>
       </div>`;
   }).join('');
 }
 renderCards('all');
 
-// Filter buttons
 document.querySelectorAll('.cf-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.cf-btn').forEach(b => b.classList.remove('active'));
@@ -729,7 +839,6 @@ document.querySelectorAll('.cf-btn').forEach(btn => {
   });
 });
 
-// Counts
 document.getElementById('cnt-all').textContent = CAMPAIGNS.length;
 ['PH','SG','VN'].forEach(c => {
   document.getElementById('cnt-' + c).textContent = CAMPAIGNS.filter(x => x.country === c).length;
@@ -737,7 +846,6 @@ document.getElementById('cnt-all').textContent = CAMPAIGNS.length;
 document.getElementById('stat-events').textContent = CAMPAIGNS.length;
 document.getElementById('stat-plays').textContent = CAMPAIGNS.reduce((s,c) => s + c.plays.length, 0);
 
-// Tabs
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
