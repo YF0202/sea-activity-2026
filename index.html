@@ -48,38 +48,26 @@
 
   /* Header */
   .header {
-    display: flex; align-items: flex-end; justify-content: space-between;
+    display: flex; align-items: center; justify-content: space-between;
     gap: 24px; padding-bottom: 28px; margin-bottom: 28px;
     border-bottom: 1px solid var(--border);
-    flex-wrap: wrap;
   }
-  .brand {
-    display: flex; align-items: center; gap: 14px;
-    font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;
-  }
-  .brand-mark {
-    width: 44px; height: 44px; border-radius: 12px;
-    background: conic-gradient(from 180deg at 50% 50%, #6d5efd, #22d3ee, #b6ff3d, #ff2f7a, #6d5efd);
-    box-shadow: 0 8px 30px rgba(109, 94, 253, 0.35), inset 0 0 0 2px rgba(255,255,255,0.08);
-    position: relative;
-  }
-  .brand-mark::after {
-    content: ''; position: absolute; inset: 6px; border-radius: 8px; background: #05060a;
-  }
-  .brand-mark::before {
-    content: 'TS'; position: absolute; inset: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 14px; color: #fff; z-index: 2;
-  }
-  .brand-title { font-size: 22px; font-weight: 700; color: #fff; }
-  .brand-sub {
-    font-size: 12px; color: var(--text-mute); letter-spacing: 1.5px; text-transform: uppercase;
+  .header-left {
+    flex: 1;
+    min-width: 0;
   }
   .header-logo {
     display: block;
-    height: 40px;
+    height: 44px;
     width: auto;
     margin-bottom: 14px;
+  }
+  .header-icon {
+    display: block;
+    height: 44px;
+    width: auto;
+    margin-left: auto;
+    flex-shrink: 0;
   }
   h1.page-title {
     font-family: 'Outfit', sans-serif;
@@ -422,14 +410,14 @@
   /* Mobile */
   @media (max-width: 900px) {
     .container { padding: 24px 16px 60px; }
+    .header { align-items: flex-start; gap: 16px; }
+    .header-logo, .header-icon { height: 34px; }
     .cal-week { padding: 4px; gap: 3px; }
     .cal-cell { min-height: 36px; padding: 4px 6px; }
     .cal-date { font-size: 13px; }
     .cal-bar { font-size: 10px; padding: 3px 6px; }
     .cal-bar .bar-date { display: none; }
     .field { grid-template-columns: 1fr; gap: 4px; }
-    .header-right { text-align: left; min-width: auto; }
-    .stat-row { justify-content: flex-start; }
   }
 </style>
 </head>
@@ -437,11 +425,12 @@
   <div class="container">
     <!-- Header -->
     <div class="header">
-      <div>
-        <img class="header-logo" src="tiktok-shop-logo.svg" alt="TikTok Shop" />
+      <div class="header-left">
+        <img class="header-logo" src="image-37a1beeb.png" alt="TikTok Shop" style="height: 44px; display: block;" />
         <h1 class="page-title">2026 年 SEA<br/>行业 / 主题活动大全</h1>
         <p class="page-sub">聚合 PH / SG / VN 等东南亚站点 2026 年度行业与主题活动全景，实时同步官方大促排期与激励玩法。点击"立即报名"直达商家后台报名入口，同时可查看"活动方案"文档，把握每一次成交爆发窗口。</p>
       </div>
+      <img class="header-icon" src="image-3fa59e52.png" alt="TikTok Shop Icon" style="height: 44px; display: block; margin-left: auto;" />
     </div>
 
     <!-- Tabs -->
@@ -525,7 +514,7 @@ const CAMPAIGNS = [
         requirement: '1. 活动日均自播 GMV 大于 $2K，爆发系数 vs 基准期 ≥ 110%，广告投入 vs 基准期增加 10%\n2. 需同时报名 WOW Sulit 合资货补 + 100% 包邮玩法',
         benefit: '1. 单商家提报活动目标的 GMV 8~12% 补贴，最高可得 $4K\n2. 共享各玩法补贴、券增发券及站内非标资源',
         links: [{label: '联系店铺的运营经理提报', url: ''}],
-        plan: 'https://bytedance.sg.larkoffice.com/docx/QZOfwPBwmiykL9kYvDscd6AanpT'
+        plan: 'https://bytedance.sg.larkoffice.com/wiki/QZOfwPBwmiykL9kYvDscd6AanpT'
       },
       {
         name: '100% 包邮', tag: 'FREE SHIPPING',
@@ -585,7 +574,7 @@ const CAMPAIGNS = [
         requirement: '1. 商家必须报名 VXP\n2. 活动期店铺 GMV ≥ $5K，ADS TR ≥ 1.5%',
         benefit: '单商家提报活动目标的 GMV 2~7% 补贴',
         links: [{label: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/live-campaign/detail/7660838258540119829?channel=am&track_id=7d6b67269a9e56ff27ba30c28bbed225&shop_region=VN'}],
-        plan: 'https://bytedance.sg.larkoffice.com/wiki/RxrTdGcfRoT3GmxZsoIlgsSCg9b'
+        plan: 'https://bytedance.sg.larkoffice.com/docx/RxrTdGcfRoT3GmxZsoIlgsSCg9b'
       },
       {
         name: '合资券 // CFV', tag: 'CO-FUND',
