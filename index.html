@@ -56,24 +56,34 @@
     flex: 1;
     min-width: 0;
   }
+  .brand-plate {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    line-height: 0;
+  }
+  .brand-plate--logo {
+    padding: 10px 16px;
+    margin-bottom: 14px;
+  }
+  .brand-plate--icon {
+    padding: 10px 14px;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
   .header-logo {
     display: block;
-    height: clamp(32px, 4vw, 52px);
+    height: clamp(28px, 3.4vw, 44px);
     width: auto;
     max-width: 100%;
-    margin-bottom: 14px;
-    /* 让黑底 PNG 与深色背景融合：屏幕混合模式会把纯黑当作透明 */
-    mix-blend-mode: screen;
-    filter: brightness(1.05);
   }
   .header-icon {
     display: block;
-    height: clamp(72px, 9vw, 110px);
+    height: clamp(56px, 7vw, 88px);
     width: auto;
-    margin-left: auto;
-    flex-shrink: 0;
-    mix-blend-mode: screen;
-    filter: brightness(1.05);
   }
   h1.page-title {
     font-family: 'Outfit', sans-serif;
@@ -433,11 +443,15 @@
     <!-- Header -->
     <div class="header">
       <div class="header-left">
-        <img class="header-logo" src="image-37a1beeb.png" alt="TikTok Shop" />
+        <div class="brand-plate brand-plate--logo">
+          <img class="header-logo" src="image-37a1beeb.png" alt="TikTok Shop" />
+        </div>
         <h1 class="page-title">2026 年 SEA<br/>行业 / 主题活动大全</h1>
         <p class="page-sub">聚合 PH / SG / VN 等东南亚站点 2026 年度行业与主题活动全景，实时同步官方大促排期与激励玩法。点击"立即报名"直达商家后台报名入口，同时可查看"活动方案"文档，把握每一次成交爆发窗口。</p>
       </div>
-      <img class="header-icon" src="image-3fa59e52.png" alt="TikTok Shop Icon" />
+      <div class="brand-plate brand-plate--icon">
+        <img class="header-icon" src="image-3fa59e52.png" alt="TikTok Shop Icon" />
+      </div>
     </div>
 
     <!-- Tabs -->
