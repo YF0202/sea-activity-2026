@@ -54,7 +54,7 @@
     position: relative;
     overflow: hidden;
   }
-  .header-left {
+  .header-left { padding-right: 200px; 
     flex: 1;
     min-width: 0;
     position: relative;
@@ -70,10 +70,10 @@
   }
   .header-bag {
     position: absolute;
-    right: -24px;
+    right: 24px;
     top: 50%;
     transform: translateY(-50%);
-    height: clamp(160px, 24vw, 280px);
+    height: clamp(140px, 20vw, 240px);
     width: auto;
     pointer-events: none;
     opacity: 0.55;
@@ -514,27 +514,53 @@
   .cal-bar > .bar-mid > span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
   .field-val-cn {
-    color: var(--text-dim) !important;
-    font-size: 12px !important;
-    margin-top: 6px;
-    padding-top: 6px;
+    color: var(--text-mute) !important;
+    font-size: 12.5px !important;
+    line-height: 1.65 !important;
+    margin-top: 8px;
+    padding: 8px 10px 0;
     border-top: 1px dashed var(--border);
     font-style: normal;
+    position: relative;
+  }
+  .field-val-cn::before {
+    content: '中';
+    position: absolute;
+    left: -4px;
+    top: 6px;
+    font-size: 9px;
+    padding: 1px 5px;
+    background: rgba(109, 94, 253, 0.18);
+    color: var(--accent-2);
+    border-radius: 3px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+  .field-val {
+    position: relative;
   }
   .field-lbl-cn {
-    font-size: 10px;
+    font-size: 10.5px;
     color: var(--text-dim);
-    font-weight: 400;
-    margin-left: 4px;
+    font-weight: 500;
+    margin-left: 8px;
     letter-spacing: 0;
+    padding: 1px 6px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 3px;
   }
+  .card-name { font-size: 22px !important; letter-spacing: -0.005em; }
+  .card-tagline { font-size: 13.5px; line-height: 1.65; margin-bottom: 8px; }
+  .play-name { font-size: 15px; font-weight: 600; }
+  .field-lbl { letter-spacing: 0.05em; }
+  .field { padding: 12px 14px; }
 
   /* Mobile */
   @media (max-width: 900px) {
     .container { padding: 24px 16px 60px; }
     .header { align-items: flex-start; gap: 16px; }
     .header-logo { height: 32px; }
-    .header-bag { height: 120px; right: -30px; opacity: 0.55; }
+    .header-bag { height: 120px; right: 12px; opacity: 0.55; }
     .cal-week { padding: 4px; gap: 3px; }
     .cal-cell { min-height: 36px; padding: 4px 6px; }
     .cal-date { font-size: 13px; }
