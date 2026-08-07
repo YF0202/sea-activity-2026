@@ -513,41 +513,8 @@
   .cal-bar > .bar-mid { flex: 1; min-width: 0; overflow: hidden; }
   .cal-bar > .bar-mid > span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
-  .field-val-cn {
-    color: var(--text-mute) !important;
-    font-size: 12.5px !important;
-    line-height: 1.65 !important;
-    margin-top: 8px;
-    padding: 8px 10px 0;
-    border-top: 1px dashed var(--border);
-    font-style: normal;
-    position: relative;
-  }
-  .field-val-cn::before {
-    content: '中';
-    position: absolute;
-    left: -4px;
-    top: 6px;
-    font-size: 9px;
-    padding: 1px 5px;
-    background: rgba(109, 94, 253, 0.18);
-    color: var(--accent-2);
-    border-radius: 3px;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-  }
   .field-val {
     position: relative;
-  }
-  .field-lbl-cn {
-    font-size: 10.5px;
-    color: var(--text-dim);
-    font-weight: 500;
-    margin-left: 8px;
-    letter-spacing: 0;
-    padding: 1px 6px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 3px;
   }
   .card-name { font-size: 22px !important; letter-spacing: -0.005em; }
   .card-tagline { font-size: 13.5px; line-height: 1.65; margin-bottom: 8px; }
@@ -576,8 +543,10 @@
     <div class="header">
       <div class="header-left">
         <img class="header-logo" src="logo-wordmark.png" alt="TikTok Shop" />
-        <h1 class="page-title">2026 SEA cross-border<br/>Campaigns All in one</h1>
-        <p class="page-sub">A unified view of 2026 SEA industry &amp; themed campaigns across PH / SG / VN, syncing official schedules and incentive playbooks. Click "Register Now" to jump to the seller-center enrollment page, and open "Campaign Plan" docs to seize every GMV surge window.</p>
+        <h1 class="page-title">2026 跨境SEA<br/>行业 / 主题活动大全</h1>
+        <span class="page-title-en">2026 SEA cross-border Campaigns All in one</span>
+        <p class="page-sub">聚合 PH / SG / VN 等东南亚站点 2026 年度行业与主题活动全景，实时同步官方大促排期与激励玩法。点击"立即报名 / AM 提报入口"直达商家后台报名入口，同时可查看"活动招商方案"文档，把握每一次成交爆发窗口。</p>
+        <p class="page-sub-en">A unified view of 2026 SEA industry &amp; themed campaigns across PH / SG / VN, syncing official schedules and incentive playbooks. Click "Register Now" to jump to the seller-center enrollment page, and open "Campaign Plan" docs to seize every GMV surge window.</p>
       </div>
       <img class="header-bag" src="logo-bag.png" alt="" />
     </div>
@@ -585,10 +554,13 @@
     <!-- Tabs -->
     <div class="tabs" role="tablist">
       <button class="tab active" data-tab="calendar" role="tab">
-        <span class="tab-dot"></span>Calendar
+        <span class="tab-dot"></span>活动日历 / Calendar
       </button>
-      <button class="tab" data-tab="details" role="tab">
-        <span class="tab-dot"></span>August Details
+      <button class="tab" data-tab="details-cn" role="tab">
+        <span class="tab-dot"></span>活动玩法（中文）
+      </button>
+      <button class="tab" data-tab="details-en" role="tab">
+        <span class="tab-dot"></span>Campaign Plays (English)
       </button>
     </div>
 
@@ -624,16 +596,28 @@
       </div>
     </div>
 
-    <!-- Panel 2: Details -->
-    <div class="panel" id="panel-details">
-      <div class="country-filter" id="country-filter">
-        <button class="cf-btn active" data-country="all">All <span class="cf-count" id="cnt-all">0</span></button>
-        <button class="cf-btn" data-country="PH"><span class="legend-dot dot-ph"></span>PH · Philippines <span class="cf-count" id="cnt-PH">0</span></button>
-        <button class="cf-btn" data-country="SG"><span class="legend-dot dot-sg"></span>SG · Singapore <span class="cf-count" id="cnt-SG">0</span></button>
-        <button class="cf-btn" data-country="VN"><span class="legend-dot dot-vn"></span>VN · Vietnam <span class="cf-count" id="cnt-VN">0</span></button>
+    <!-- Panel 2: Chinese Details -->
+    <div class="panel" id="panel-details-cn">
+      <div class="country-filter" id="country-filter-cn">
+        <button class="cf-btn active" data-country="all">全部 <span class="cf-count" id="cnt-cn-all">0</span></button>
+        <button class="cf-btn" data-country="PH"><span class="legend-dot dot-ph"></span>PH 菲律宾 <span class="cf-count" id="cnt-cn-PH">0</span></button>
+        <button class="cf-btn" data-country="SG"><span class="legend-dot dot-sg"></span>SG 新加坡 <span class="cf-count" id="cnt-cn-SG">0</span></button>
+        <button class="cf-btn" data-country="VN"><span class="legend-dot dot-vn"></span>VN 越南 <span class="cf-count" id="cnt-cn-VN">0</span></button>
       </div>
 
-      <div class="cards" id="cards"></div>
+      <div class="cards" id="cards-cn"></div>
+    </div>
+
+    <!-- Panel 3: English Details -->
+    <div class="panel" id="panel-details-en">
+      <div class="country-filter" id="country-filter-en">
+        <button class="cf-btn active" data-country="all">All <span class="cf-count" id="cnt-en-all">0</span></button>
+        <button class="cf-btn" data-country="PH"><span class="legend-dot dot-ph"></span>PH · Philippines <span class="cf-count" id="cnt-en-PH">0</span></button>
+        <button class="cf-btn" data-country="SG"><span class="legend-dot dot-sg"></span>SG · Singapore <span class="cf-count" id="cnt-en-SG">0</span></button>
+        <button class="cf-btn" data-country="VN"><span class="legend-dot dot-vn"></span>VN · Vietnam <span class="cf-count" id="cnt-en-VN">0</span></button>
+      </div>
+
+      <div class="cards" id="cards-en"></div>
     </div>
 
     <!-- Footer -->
@@ -651,54 +635,56 @@
 const CAMPAIGNS = [
   {
     id: 'ph-friday-friyay',
-    country: 'PH', countryFull: 'Philippines',
-    name: 'Friday Friyay',
+    country: 'PH', countryFull: 'Philippines', countryFullCn: '菲律宾',
+    name: 'Friday Friyay', nameCn: 'Friday Friyay',
     date: '8/20 - 8/21',
     startDay: 20, endDay: 21,
     tagline: 'Dedicated weekly Friday burst incentives, stacking WOW Sulit co-funded subsidies and 100% free shipping to unlock strong GMV spikes.',
+    taglineCn: '每周五爆发日专属激励，叠加 WOW Sulit 合资货补与 100% 包邮玩法，带来强力成交爆发。',
     plays: [
       {
-        name: 'Single-Merchant Campaign Package', tag: 'GMV BOOST',
+        name: 'Single-Merchant Campaign Package', nameCn: '单商家活动激励包', tag: 'GMV BOOST',
         ddl: '8/14',
         requirement: '1. Daily self-live GMV ≥ $2K, burst coefficient ≥ 110% vs. baseline, ads spend +10% vs. baseline\n2. Must also enroll WOW Sulit co-funded subsidy + 100% free-shipping play',
         requirementCn: '1. 活动日均自播 GMV 大于 $2K，爆发系数 vs 基准期 ≥ 110%，广告投入 vs 基准期增加 10%\n2. 需同时报名 WOW Sulit 合资货补 + 100% 包邮玩法',
         benefit: '1. 8~12% subsidy on the merchant\'s target GMV, up to $4K per merchant\n2. Shared access to play-level subsidies, incremental vouchers, and non-standard on-site resources',
         benefitCn: '1. 单商家提报活动目标的 GMV 8~12% 补贴，最高可得 $4K\n2. 共享各玩法补贴、券增发券及站内非标资源',
-        links: [{label: 'Contact your Account Manager', url: ''}],
+        links: [{label: 'Contact your Account Manager', labelCn: 'AM 提报入口', url: 'https://bytedance.sg.larkoffice.com/sheets/Ln9SsJJQPhq0VVtRit7lGeydgzn?sheet=qHDhYT&rangeId=qHDhYT_YA0DIll5QP&rangeVer=1'}],
         plan: 'https://bytedance.sg.larkoffice.com/wiki/QZOfwPBwmiykL9kYvDscd6AanpT'
       },
       {
-        name: '100% Free Shipping', tag: 'FREE SHIPPING',
+        name: '100% Free Shipping', nameCn: '100% 包邮', tag: 'FREE SHIPPING',
         ddl: '8/14',
         requirement: '1. Supply price: off-platform ≤ same-SKU supply price; on-platform 3% below L30D lowest price\n2. Inventory management: sufficient stock committed, participate in inventory-lock project',
         requirementCn: '1. 商品供应价：站外 ≤ 同款供应价；站内比 L30D 最低价再低 3%\n2. 商品库存管理：给到充足的商品库存，参与锁库存项目',
         benefit: 'Shipping voucher (no minimum spend threshold)',
         benefitCn: '运费券（无最低消费门槛）',
-        links: [{label: 'Register Now', url: 'https://m.tiktok.shop/s/AKyOgEzgL55E'}],
+        links: [{label: 'Register Now', labelCn: '立即报名', url: 'https://m.tiktok.shop/s/AKyOgEzgL55E'}],
         plan: 'https://bytedance.sg.larkoffice.com/wiki/WUhtwqKLHikJg4kWpxCcCHfDnRd'
       },
       {
-        name: 'WOW Sulit Co-funded Subsidy', tag: 'CO-FUND',
+        name: 'WOW Sulit Co-funded Subsidy', nameCn: 'WOW Sulit 合资货补', tag: 'CO-FUND',
         ddl: '8/14',
         requirement: '≤ L30D lowest supply price',
         requirementCn: '≤ L30D 商品最低供应价',
         benefit: 'MDP merchants: 5%–10% subsidy rate (stackable with MDP vouchers)\nNon-MDP merchants: 7%–15% subsidy rate',
         benefitCn: 'MDP 商家：补贴率 5%-10%（可和 MDP 券叠加）\n非 MDP 商家：补贴率 7%-15%',
-        links: [{label: 'Register Now', url: 'https://m.tiktok.shop/s/AJoCXEq1vhya'}],
+        links: [{label: 'Register Now', labelCn: '立即报名', url: 'https://m.tiktok.shop/s/AJoCXEq1vhya'}],
         plan: 'https://bytedance.sg.larkoffice.com/wiki/DeD2w6IMfiTpSXklJt0c3BfInIf'
       }
     ]
   },
   {
     id: 'sg-shop-the-world',
-    country: 'SG', countryFull: 'Singapore',
-    name: 'Shop the World',
+    country: 'SG', countryFull: 'Singapore', countryFullCn: '新加坡',
+    name: 'Shop the World', nameCn: 'Shop the World',
     date: '8/27 - 8/31',
     startDay: 27, endDay: 31,
     tagline: 'Singapore end-of-month flagship sale — platform fully-funded vouchers stack with co-funded vouchers to lock in an order-volume burst window.',
+    taglineCn: '新加坡站月末重点大促，平台全资券叠加合资券双重加持，锁定订单量爆发窗口。',
     plays: [
       {
-        name: 'Platform Fully-Funded Voucher (FFV)', tag: 'FULLY-FUNDED',
+        name: 'Platform Fully-Funded Voucher (FFV)', nameCn: '平台全资券 // FFV', tag: 'FULLY-FUNDED',
         ddl: 'TBU',
         requirement: '≤ L30D lowest campaign price',
         requirementCn: '≤ L30D 商品最低活动价',
@@ -708,7 +694,7 @@ const CAMPAIGNS = [
         plan: null
       },
       {
-        name: 'Co-funded Voucher (CFV)', tag: 'CO-FUND',
+        name: 'Co-funded Voucher (CFV)', nameCn: '合资券 // CFV', tag: 'CO-FUND',
         ddl: 'TBU',
         requirement: '≤ L30D lowest campaign price',
         requirementCn: '≤ L30D 商品最低活动价',
@@ -721,72 +707,74 @@ const CAMPAIGNS = [
   },
   {
     id: 'vn-back-to-school',
-    country: 'VN', countryFull: 'Vietnam',
-    name: 'Back To School',
+    country: 'VN', countryFull: 'Vietnam', countryFullCn: '越南',
+    name: 'Back To School', nameCn: 'Back To School',
     date: '8/17 - 8/19',
     startDay: 17, endDay: 19,
     tagline: 'Vietnam back-to-school flagship sale — Key Live Streaming (KLS) paired with co-funded vouchers to capture the school-season sales peak.',
+    taglineCn: '越南开学季重点大促，重点直播（KLS）+ 合资券协同发力，抢占开学季销量高峰。',
     plays: [
       {
-        name: 'Key Live-Streaming Merchant (KLS)', tag: 'LIVE STREAM',
+        name: 'Key Live-Streaming Merchant (KLS)', nameCn: '重点直播商家 // KLS', tag: 'LIVE STREAM',
         ddl: '8/13',
         requirement: '1. Merchant must enroll VXP\n2. Shop GMV ≥ $5K during campaign, ADS TR ≥ 1.5%',
         requirementCn: '1. 商家必须报名 VXP\n2. 活动期店铺 GMV ≥ $5K，ADS TR ≥ 1.5%',
         benefit: '2~7% subsidy on the merchant\'s target campaign GMV',
         benefitCn: '单商家提报活动目标的 GMV 2~7% 补贴',
-        links: [{label: 'Register Now', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/live-campaign/detail/7660838258540119829?channel=am&track_id=7d6b67269a9e56ff27ba30c28bbed225&shop_region=VN'}],
+        links: [{label: 'Register Now', labelCn: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/live-campaign/detail/7660838258540119829?channel=am&track_id=7d6b67269a9e56ff27ba30c28bbed225&shop_region=VN'}],
         plan: 'https://bytedance.sg.larkoffice.com/docx/RxrTdGcfRoT3GmxZsoIlgsSCg9b'
       },
       {
-        name: 'Co-funded Voucher (CFV)', tag: 'CO-FUND',
+        name: 'Co-funded Voucher (CFV)', nameCn: '合资券 // CFV', tag: 'CO-FUND',
         ddl: '8/13',
         requirement: '1. Merchant must enroll VXP\n2. ≤ L30D lowest campaign price',
         requirementCn: '1. 商家必须报名 VXP\n2. ≤ L30D 商品最低活动价',
         benefit: 'Up to 25% subsidy rate (platform 70% / seller 30% co-funding)',
         benefitCn: '最高补贴率 25%（出资比例：平台 70%，卖家 30%）',
-        links: [{label: 'Register Now', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/all?channel=am&track_id=e16adc4a87edfbbd604c969b23e33f28&shop_region=VN'}],
+        links: [{label: 'Register Now', labelCn: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign-tools/all?channel=am&track_id=e16adc4a87edfbbd604c969b23e33f28&shop_region=VN'}],
         plan: null
       }
     ]
   },
   {
     id: 'vn-monthly-20th',
-    country: 'VN', countryFull: 'Vietnam',
-    name: 'Monthly 20th Supersale Day',
+    country: 'VN', countryFull: 'Vietnam', countryFullCn: '越南',
+    name: 'Monthly 20th Supersale Day', nameCn: 'Monthly 20th Supersale Day',
     date: '8/20',
     startDay: 20, endDay: 20,
     tagline: 'Every 20th of the month super-sale day — KLS + Co-funded Voucher + Flashsale triple play with up to 25% subsidy.',
+    taglineCn: '每月 20 号超级大促日，KLS + 合资券 + 闪购三重玩法齐发，最高补贴率 25%。',
     plays: [
       {
-        name: 'Key Live Streaming (KLS)', tag: 'LIVE STREAM',
+        name: 'Key Live Streaming (KLS)', nameCn: 'KLS 重点直播', tag: 'LIVE STREAM',
         ddl: '8/14',
         requirement: 'Minimum GMV target $5K, ADS TR ≥ 1.5%',
         requirementCn: '最低 GMV 目标 $5K，ADS TR ≥ 1.5%',
         benefit: '2~7% subsidy on the merchant\'s target campaign GMV',
         benefitCn: '单商家提报活动目标的 GMV 2~7% 补贴',
-        links: [{label: 'Contact your Account Manager', url: ''}],
+        links: [{label: 'Contact your Account Manager', labelCn: 'AM 提报入口', url: 'https://bytedance.sg.larkoffice.com/sheets/Ln9SsJJQPhq0VVtRit7lGeydgzn?sheet=qHDhYT&rangeId=qHDhYT_YA0DIll5QP&rangeVer=1'}],
         plan: null
       },
       {
-        name: 'Co-funded Voucher (CFV)', tag: 'CO-FUND',
+        name: 'Co-funded Voucher (CFV)', nameCn: '合资券 // CFV', tag: 'CO-FUND',
         ddl: '8/17',
         requirement: '≤ L30D lowest campaign price',
         requirementCn: '≤ L30D 商品最低活动价',
         benefit: 'Up to 25% subsidy rate (platform 70% / seller 30% co-funding)',
         benefitCn: '最高补贴率 25%（出资比例：平台 70%，卖家 30%）',
-        links: [{label: 'Register Now', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7645245113978996498/select-online?channel=am&track_id=3927612044097ec3f26ae05c73db9e30&shop_region=VN'}],
+        links: [{label: 'Register Now', labelCn: '立即报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7645245113978996498/select-online?channel=am&track_id=3927612044097ec3f26ae05c73db9e30&shop_region=VN'}],
         plan: null
       },
       {
-        name: 'Flashsale', tag: 'FLASHSALE',
+        name: 'Flashsale', nameCn: '闪购 // Flashsale', tag: 'FLASHSALE',
         ddl: null,
         requirement: '1. ≤ L30D lowest campaign price\n2. After-subsidy price ≤ other platforms',
         requirementCn: '1. ≤ L30D 商品最低活动价\n2. 补贴后商品价格 ≤ 其他平台',
         benefit: 'Up to 15% subsidy rate',
         benefitCn: '最高补贴率 15%',
         links: [
-          {label: 'Daily Flashsale', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7638481483761649409/select-online?channel=am&track_id=0a1fd08bc5fad573acc2db93bdf84568&shop_region=VN'},
-          {label: 'Super Flashsale', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7638481483761649409/select-online?channel=am&track_id=4e3bdebb01e13e0367f17e1bb12553c2&shop_region=VN'}
+          {label: 'Daily Flashsale', labelCn: '每日闪购报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7638481483761649409/select-online?channel=am&track_id=0a1fd08bc5fad573acc2db93bdf84568&shop_region=VN'},
+          {label: 'Super Flashsale', labelCn: '超级闪购报名', url: 'https://seller.tiktokglobalshop.com/promotion/campaign/register/7638481483761649409/select-online?channel=am&track_id=4e3bdebb01e13e0367f17e1bb12553c2&shop_region=VN'}
         ],
         plan: null
       }
@@ -794,14 +782,15 @@ const CAMPAIGNS = [
   },
   {
     id: 'vn-mall-day',
-    country: 'VN', countryFull: 'Vietnam',
-    name: 'Mall Day',
+    country: 'VN', countryFull: 'Vietnam', countryFullCn: '越南',
+    name: 'Mall Day', nameCn: 'Mall Day',
     date: '8/21',
     startDay: 21, endDay: 21,
     tagline: 'Vietnam Mall-merchants exclusive sale day — KLS + Co-funded Voucher combo delivering up to 25% subsidy for Mall merchants.',
+    taglineCn: '越南 Mall 商家专属大促日，KLS + 合资券组合放送，MALL 商家最高补贴率 25%。',
     plays: [
       {
-        name: 'Key Live Streaming (KLS)', tag: 'LIVE STREAM',
+        name: 'Key Live Streaming (KLS)', nameCn: 'KLS 重点直播', tag: 'LIVE STREAM',
         ddl: 'TBU',
         requirement: '1. Merchant must enroll VXP\n2. Minimum GMV target $5K, ADS TR ≥ 1.5%',
         requirementCn: '1. 商家必须报名 VXP\n2. 最低 GMV 目标 $5K，ADS TR ≥ 1.5%',
@@ -811,7 +800,7 @@ const CAMPAIGNS = [
         plan: null
       },
       {
-        name: 'Co-funded Voucher (CFV, Mall)', tag: 'CO-FUND MALL',
+        name: 'Co-funded Voucher (CFV, Mall)', nameCn: '合资券 // CFV', tag: 'CO-FUND MALL',
         ddl: 'TBU',
         requirement: '1. Must be a MALL merchant and enrolled in VXP\n2. ≤ L30D lowest campaign price',
         requirementCn: '1. 必须是 MALL 商家并参与 VXP\n2. ≤ L30D 商品最低活动价',
@@ -1067,48 +1056,51 @@ const SEP_EVENTS = [
 })();
 
 // ============ RENDER CARDS ============
-const cardsEl = document.getElementById('cards');
-
-function renderCards(filter) {
+function renderCards(filter, lang, containerId) {
+  const container = document.getElementById(containerId);
+  const isCn = lang === 'cn';
   const list = filter === 'all' ? CAMPAIGNS : CAMPAIGNS.filter(c => c.country === filter);
-  cardsEl.innerHTML = list.map(c => {
+  container.innerHTML = list.map(c => {
     const countryClass = c.country.toLowerCase();
+    const countryName = isCn ? c.countryFullCn : c.countryFull;
+    const campaignName = isCn ? c.nameCn : c.name;
+    const campaignTagline = isCn ? c.taglineCn : c.tagline;
     const playsHtml = c.plays.map(p => {
       let ctaItems = [];
       if (!p.links || p.links.length === 0) {
-        ctaItems.push(`<span class="cta disabled">Link TBU</span>`);
+        ctaItems.push(`<span class="cta disabled">${isCn ? '报名链接 TBU' : 'Link TBU'}</span>`);
       } else {
         p.links.forEach(l => {
+          const linkLabel = isCn ? (l.labelCn || l.label) : l.label;
           if (l.url) {
-            ctaItems.push(`<a class="cta" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`);
+            ctaItems.push(`<a class="cta" href="${escapeHtml(l.url)}" target="_blank" rel="noopener">${escapeHtml(linkLabel)}</a>`);
           } else {
-            ctaItems.push(`<span class="cta info-text">${escapeHtml(l.label)}</span>`);
+            ctaItems.push(`<span class="cta info-text">${escapeHtml(linkLabel)}</span>`);
           }
         });
       }
       if (p.plan) {
-        ctaItems.push(`<a class="cta secondary" href="${escapeHtml(p.plan)}" target="_blank" rel="noopener">Campaign Plan</a>`);
+        ctaItems.push(`<a class="cta secondary" href="${escapeHtml(p.plan)}" target="_blank" rel="noopener">${isCn ? '活动招商方案' : 'Campaign Plan'}</a>`);
       }
       const ctaHtml = `<div class="cta-row">${ctaItems.join('')}</div>`;
-      const ddlHtml = p.ddl ? `<span class="play-ddl">DDL ${escapeHtml(p.ddl)}</span>` : '';
-      const reqCnHtml = p.requirementCn ? `<div class="field-val field-val-cn">${escapeHtml(p.requirementCn)}</div>` : '';
-      const benCnHtml = p.benefitCn ? `<div class="field-val field-val-cn">${escapeHtml(p.benefitCn)}</div>` : '';
+      const ddlHtml = p.ddl ? `<span class="play-ddl">${isCn ? '报名截止' : 'DDL'} ${escapeHtml(p.ddl)}</span>` : '';
+      const playName = isCn ? (p.nameCn || p.name) : p.name;
+      const requirement = isCn ? p.requirementCn : p.requirement;
+      const benefit = isCn ? p.benefitCn : p.benefit;
       return `
         <div class="play">
           <div class="play-head">
-            <div class="play-name">${escapeHtml(p.name)}${p.tag ? `<span class="play-tag">${escapeHtml(p.tag)}</span>` : ''}</div>
+            <div class="play-name">${escapeHtml(playName)}${p.tag ? `<span class="play-tag">${escapeHtml(p.tag)}</span>` : ''}</div>
             ${ddlHtml}
           </div>
           <div class="fields">
             <div class="field">
-              <div class="field-lbl">Requirements <span class="field-lbl-cn">商家要求</span></div>
-              <div class="field-val">${escapeHtml(p.requirement)}</div>
-              ${reqCnHtml}
+              <div class="field-lbl">${isCn ? '商家要求' : 'Requirements'}</div>
+              <div class="field-val">${escapeHtml(requirement)}</div>
             </div>
             <div class="field">
-              <div class="field-lbl">Benefits <span class="field-lbl-cn">商家收益</span></div>
-              <div class="field-val">${escapeHtml(p.benefit)}</div>
-              ${benCnHtml}
+              <div class="field-lbl">${isCn ? '商家收益' : 'Benefits'}</div>
+              <div class="field-val">${escapeHtml(benefit)}</div>
             </div>
           </div>
           ${ctaHtml}
@@ -1118,28 +1110,36 @@ function renderCards(filter) {
     return `
       <div class="card country-${countryClass}" data-country="${c.country}">
         <div class="card-head">
-          <span class="card-country ${countryClass}"><span class="legend-dot dot-${countryClass}"></span>${c.country} · ${c.countryFull}</span>
+          <span class="card-country ${countryClass}"><span class="legend-dot dot-${countryClass}"></span>${c.country} · ${escapeHtml(countryName)}</span>
           <span class="card-date">${escapeHtml(c.date)}</span>
         </div>
-        <div class="card-name">${escapeHtml(c.name)}</div>
-        <div class="card-tagline">${escapeHtml(c.tagline)}</div>
+        <div class="card-name">${escapeHtml(campaignName)}</div>
+        <div class="card-tagline">${escapeHtml(campaignTagline)}</div>
         <div class="plays">${playsHtml}</div>
       </div>`;
   }).join('');
 }
-renderCards('all');
+renderCards('all', 'cn', 'cards-cn');
+renderCards('all', 'en', 'cards-en');
 
-document.querySelectorAll('.cf-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.cf-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderCards(btn.dataset.country);
+function wireCountryFilter(filterId, lang, containerId) {
+  const filterEl = document.getElementById(filterId);
+  filterEl.querySelectorAll('.cf-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterEl.querySelectorAll('.cf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderCards(btn.dataset.country, lang, containerId);
+    });
   });
-});
+}
+wireCountryFilter('country-filter-cn', 'cn', 'cards-cn');
+wireCountryFilter('country-filter-en', 'en', 'cards-en');
 
-document.getElementById('cnt-all').textContent = CAMPAIGNS.length;
-['PH','SG','VN'].forEach(c => {
-  document.getElementById('cnt-' + c).textContent = CAMPAIGNS.filter(x => x.country === c).length;
+['cn','en'].forEach(lang => {
+  document.getElementById(`cnt-${lang}-all`).textContent = CAMPAIGNS.length;
+  ['PH','SG','VN'].forEach(c => {
+    document.getElementById(`cnt-${lang}-${c}`).textContent = CAMPAIGNS.filter(x => x.country === c).length;
+  });
 });
 
 document.querySelectorAll('.tab').forEach(tab => {
